@@ -61,38 +61,7 @@
 
 <section class="section">
   <div class="container">
-    <div class="dl-grid rv">
-      <a href="assets/AdmissionForm.pdf" class="dl-card" target="_blank" download>
-        <div class="dl-icon">📝</div>
-        <div class="dl-info"><div class="dl-title">Admission Form</div><div class="dl-meta">For new admissions — Session 2025–26</div></div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="assets/CharacerCertificate.pdf" class="dl-card" target="_blank" download>
-        <div class="dl-icon">🎓</div>
-        <div class="dl-info"><div class="dl-title">Character Certificate</div><div class="dl-meta">Official character certificate format</div></div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">💰</div>
-        <div class="dl-info"><div class="dl-title">Fee Structure 2025–26</div><div class="dl-meta">Approved fee schedule for all classes</div></div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">📋</div>
-        <div class="dl-info"><div class="dl-title">SLC Application Form</div><div class="dl-meta">School Leaving Certificate application</div></div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">🗓️</div>
-        <div class="dl-info"><div class="dl-title">Academic Calendar 2025–26</div><div class="dl-meta">Full year event and exam calendar</div></div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">🏅</div>
-        <div class="dl-info"><div class="dl-title">Scholarship Forms</div><div class="dl-meta">State &amp; central government scholarship forms</div></div>
-        <div class="dl-arr">↓</div>
-      </a>
-    </div>
+    <div class="dl-grid rv" id="dl-grid"></div>
   </div>
 </section>
 </main>
@@ -109,5 +78,22 @@
 
 <button class="scroll-top" id="scroll-top" aria-label="Back to top">↑</button>
 <script src="js/main.js"></script>
+<script>
+fetch('data/downloads.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('dl-grid').innerHTML = data.downloads.map(d => {
+      const isReal = d.fileUrl && d.fileUrl !== '#';
+      const attrs = isReal ? ' target="_blank" download' : '';
+      return `
+      <a href="${d.fileUrl}" class="dl-card"${attrs}>
+        <div class="dl-icon">${d.icon}</div>
+        <div class="dl-info"><div class="dl-title">${d.title}</div><div class="dl-meta">${d.meta}</div></div>
+        <div class="dl-arr">↓</div>
+      </a>`;
+    }).join('');
+  })
+  .catch(err => console.error('Failed to load downloads', err));
+</script>
 </body>
 </html>

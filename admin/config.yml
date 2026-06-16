@@ -1,0 +1,72 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: simple
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: https://your-site-name.netlify.app
+display_url: https://your-site-name.netlify.app
+logo_url: /assets/logo.jpg
+
+collections:
+  - name: "notices"
+    label: "📋 Notice Board"
+    description: "Notices shown on the homepage and the Notices page"
+    files:
+      - label: "All Notices"
+        name: "notices"
+        file: "data/notices.json"
+        fields:
+          - label: "Notices"
+            name: "notices"
+            widget: "list"
+            label_singular: "Notice"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Tag (short label)", name: "tag", widget: "string", hint: "e.g. Exam Notice, Result, Holiday, Admission, Event"}
+              - {label: "Tag Colour", name: "tagClass", widget: "select", options: [{label: "Plain", value: "plain"}, {label: "Gold (new)", value: "new"}, {label: "Red (important)", value: "imp"}], default: "plain"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "desc", widget: "text"}
+              - {label: "Button Text", name: "linkText", widget: "string", default: "View →"}
+              - {label: "Button Link", name: "linkUrl", widget: "string", hint: "A page on this site (e.g. exam.html), a PDF in assets/, or a # if there's nothing to link to", default: "notices.html"}
+
+  - name: "gallery"
+    label: "🖼️ Photo Gallery"
+    description: "Photos shown on the Gallery page"
+    files:
+      - label: "All Photos"
+        name: "gallery"
+        file: "data/gallery.json"
+        fields:
+          - label: "Photos"
+            name: "gallery"
+            widget: "list"
+            label_singular: "Photo"
+            summary: "{{title}}"
+            fields:
+              - {label: "Photo", name: "src", widget: "image", media_folder: "assets", public_folder: "assets"}
+              - {label: "Category", name: "cat", widget: "select", options: [{label: "Recognition & Awards", value: "recognition"}, {label: "School Activities", value: "activities"}, {label: "Student Achievements", value: "achievements"}, {label: "Our Faculty", value: "teachers"}, {label: "School Events", value: "school"}]}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Date / Year", name: "date", widget: "string", hint: "e.g. 2024 or Nov 2024"}
+
+  - name: "downloads"
+    label: "📥 Downloads"
+    description: "Forms and documents on the Downloads page"
+    files:
+      - label: "All Downloads"
+        name: "downloads"
+        file: "data/downloads.json"
+        fields:
+          - label: "Downloads"
+            name: "downloads"
+            widget: "list"
+            label_singular: "Download"
+            summary: "{{title}}"
+            fields:
+              - {label: "Icon (emoji)", name: "icon", widget: "string", default: "📄"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "meta", widget: "string"}
+              - {label: "File", name: "fileUrl", widget: "file", media_folder: "assets", public_folder: "assets", hint: "Upload a PDF, or leave as # if not available yet"}

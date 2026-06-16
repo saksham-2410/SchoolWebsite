@@ -93,32 +93,7 @@
 <button class="scroll-top" id="scroll-top" aria-label="Back to top">↑</button>
 <script src="js/main.js"></script>
 <script>
-const gallery = [
-  {src:'assets/recognition1.jpg', cat:'recognition', title:'National Recognition Ceremony', date:'2024'},
-  {src:'assets/recognition2.jpg', cat:'recognition', title:'State Excellence Award', date:'2023'},
-  {src:'assets/recognition3.jpg', cat:'recognition', title:'PM SHRI Selection Honour', date:'2023'},
-  {src:'assets/recognition4.jpeg', cat:'recognition', title:'District Best School Award', date:'2024'},
-  {src:'assets/recognition5.jpeg', cat:'recognition', title:'Academic Excellence Award', date:'2024'},
-  {src:'assets/activities1.jpeg', cat:'activities', title:'Annual Science Exhibition', date:'Nov 2024'},
-  {src:'assets/activities2.jpeg', cat:'activities', title:'Cultural Programme', date:'Jan 2025'},
-  {src:'assets/activities3.jpeg', cat:'activities', title:'Sports Day Celebrations', date:'Dec 2024'},
-  {src:'assets/activities4.jpeg', cat:'activities', title:'Skill Development Workshop', date:'Oct 2024'},
-  {src:'assets/activities5.jpeg', cat:'activities', title:'NSS Camp 2024', date:'Sep 2024'},
-  {src:'assets/activities6.jpeg', cat:'activities', title:'Independence Day 2024', date:'Aug 2024'},
-  {src:'assets/kidsachievements1.jpeg', cat:'achievements', title:'Board Toppers Felicitation', date:'2024'},
-  {src:'assets/kidsachievements2.jpeg', cat:'achievements', title:'District Sports Champions', date:'2024'},
-  {src:'assets/kidsachievements3.jpeg', cat:'achievements', title:'Art Exhibition Winners', date:'2024'},
-  {src:'assets/kidsachievements4.jpeg', cat:'achievements', title:'Olympiad Medallists', date:'2024'},
-  {src:'assets/kidsachievements5.jpeg', cat:'achievements', title:'Inter-School Quiz Champions', date:'2024'},
-  {src:'assets/teacherdepartment.jpeg', cat:'teachers', title:'Science Department', date:'2024'},
-  {src:'assets/teacherdepartment2.jpeg', cat:'teachers', title:'Humanities Faculty', date:'2024'},
-  {src:'assets/teacherdepartment3.jpeg', cat:'teachers', title:'Commerce Department', date:'2024'},
-  {src:'assets/teacherrounds.jpeg', cat:'teachers', title:'Academic Rounds', date:'2024'},
-  {src:'assets/schoolgrouppic.jpeg', cat:'school', title:'Annual School Photograph', date:'2025'},
-  {src:'assets/addressingeveryone.jpeg', cat:'school', title:'Principal\'s Address', date:'2024'},
-  {src:'assets/kidscampaign1.jpeg', cat:'school', title:'Student Awareness Campaign', date:'2024'},
-  {src:'assets/plantationdrive.jpeg', cat:'school', title:'Plantation Drive', date:'Jul 2024'},
-];
+let gallery = [];
 
 function renderGallery(cat) {
   const grid = document.getElementById('gal-grid');
@@ -139,7 +114,11 @@ function renderGallery(cat) {
     });
   });
 }
-renderGallery('all');
+
+fetch('data/gallery.json')
+  .then(res => res.json())
+  .then(data => { gallery = data.gallery; renderGallery('all'); })
+  .catch(err => console.error('Failed to load gallery', err));
 
 document.querySelectorAll('.fil-btn').forEach(btn => {
   btn.addEventListener('click', () => {

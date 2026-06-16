@@ -1,0 +1,58 @@
+{
+  "notices": [
+    {
+      "date": "2025-06-14",
+      "tag": "Exam Notice",
+      "tagClass": "imp",
+      "title": "Datesheet for Half-Yearly Examinations 2025–26",
+      "desc": "The schedule for half-yearly examinations commencing from 1st July 2025 has been released. All students of classes 6–12 are advised to note the dates.",
+      "linkText": "View Datesheet →",
+      "linkUrl": "exam.html"
+    },
+    {
+      "date": "2025-06-10",
+      "tag": "Result",
+      "tagClass": "new",
+      "title": "Class 12 Board Examination Results — Session 2024–25",
+      "desc": "Congratulations to all students! Maximum score of 100% achieved in all three streams — Science, Arts, and Commerce. Results available on HBSE portal.",
+      "linkText": "View Result →",
+      "linkUrl": "exam.html#results"
+    },
+    {
+      "date": "2025-04-01",
+      "tag": "Admission",
+      "tagClass": "plain",
+      "title": "Admissions Open for Session 2025–26",
+      "desc": "Admissions are now open for Classes 6 to 12 for the academic session 2025–26. Visit school office or download the admission form below.",
+      "linkText": "Download ↓",
+      "linkUrl": "assets/AdmissionForm.pdf"
+    },
+    {
+      "date": "2025-03-25",
+      "tag": "Holiday",
+      "tagClass": "plain",
+      "title": "Holiday List for Academic Session 2025–26",
+      "desc": "The list of public holidays and vacation schedule for the academic year 2025–26 has been issued as per Haryana Government directives.",
+      "linkText": "Download ↓",
+      "linkUrl": "downloads.html"
+    },
+    {
+      "date": "2025-03-15",
+      "tag": "Event",
+      "tagClass": "plain",
+      "title": "Annual Sports Day & Prize Distribution Ceremony",
+      "desc": "Annual Sports Day and Prize Distribution Ceremony was successfully held on 15th March 2025. Congratulations to all prize winners and house champions.",
+      "linkText": "View Gallery",
+      "linkUrl": "gallery.html"
+    },
+    {
+      "date": "2024-12-20",
+      "tag": "Holiday",
+      "tagClass": "plain",
+      "title": "Winter Vacation Notice — 21 Dec 2024 to 1 Jan 2025",
+      "desc": "School will remain closed for winter vacations from 21st December 2024 to 1st January 2025. School reopens on 2nd January 2025.",
+      "linkText": "Read Notice",
+      "linkUrl": "#"
+    }
+  ]
+}

@@ -60,4 +60,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetBtn = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
     if (targetBtn) activateTab(targetBtn);
   }
+
+  // Render notices from data/notices.json wherever a notices container is present
+  document.querySelectorAll('[data-notices]').forEach(el => {
+    loadNotices(el.id, { limit: el.dataset.limit ? Number(el.dataset.limit) : null, showYear: el.dataset.showYear === 'true' });
+  });
 });
+
+// Fetches data/notices.json and renders notice-item markup into the given container.
+async function loadNotices(containerId, { limit = null, showYear = false } = {}) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  try {
+    const res = await fetch('data/notices.json');
+    const data = await res.json();
+    let items = [...data.notices].sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (limit) items = items.slice(0, limit);
+    el.innerHTML = items.map(n => {
+      const d = new Date(n.date + 'T00:00:00');
+      const dy = String(d.getDate()).padStart(2, '0');
+      const mo = d.toLocaleString('en-US', { month: 'short' }) + (showYear ? ' ' + d.getFullYear() : '');
+      const tagCls = n.tagClass && n.tagClass !== 'plain' ? ' ' + n.tagClass : '';
+      const isFile = (n.linkUrl || '').toLowerCase().endsWith('.pdf');
+      return `
+      <div class="notice-item">
+        <div class="n-date"><span class="dy">${dy}</span><span class="mo">${mo}</span></div>
+        <div class="n-body">
+          <span class="tag${tagCls}">${n.tag}</span>
+          <div class="n-title">${n.title}</div>
+          <p class="n-desc">${n.desc}</p>
+        </div>
+        <a href="${n.linkUrl}" class="n-link"${isFile ? ' target="_blank"' : ''}>${n.linkText}</a>
+      </div>`;
+    }).join('');
+  } catch (err) {
+    console.error('Failed to load notices', err);
+  }
+}
