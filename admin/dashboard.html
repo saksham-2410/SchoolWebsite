@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin Dashboard — PM SHRI Govt. Sr. Sec. School, Bhangrola</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="dash-page">
+
+<header class="dash-header">
+  <div class="brand">
+    <img src="/assets/logo.jpg" alt="">
+    <div><h1>Content Manager</h1><div class="who" id="who"></div></div>
+  </div>
+  <button class="logout-btn" id="logout-btn">Log Out</button>
+</header>
+
+<nav class="dash-tabs">
+  <button class="dash-tab active" data-tab="notices">📋 Notices</button>
+  <button class="dash-tab" data-tab="gallery">🖼️ Gallery</button>
+  <button class="dash-tab" data-tab="downloads">📥 Downloads</button>
+</nav>
+
+<main class="dash-body">
+  <div class="dash-toolbar">
+    <h2 id="tab-title">Notices</h2>
+    <div>
+      <button class="btn-add" id="add-btn">+ Add New</button>
+      <span class="status-pill" id="status-pill"></span>
+    </div>
+  </div>
+  <div id="editor-slot"></div>
+  <div id="list-slot"></div>
+</main>
+
+<script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,23 +1,47 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>School Website — Content Manager</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin Login — PM SHRI Govt. Sr. Sec. School, Bhangrola</title>
+<link rel="stylesheet" href="/admin/admin.css">
 </head>
-<body>
+<body class="login-page">
+  <div class="login-card">
+    <img src="/assets/logo.jpg" alt="School Logo" class="login-logo">
+    <h1>Admin Login</h1>
+    <p class="login-sub">PM SHRI Govt. Sr. Sec. School, Bhangrola</p>
+    <form id="login-form">
+      <label>Email<input type="email" id="email" required autocomplete="username"></label>
+      <label>Password<input type="password" id="password" required autocomplete="current-password"></label>
+      <button type="submit">Log In</button>
+      <p class="login-err" id="login-err"></p>
+    </form>
+  </div>
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const errEl = document.getElementById('login-err');
+      errEl.textContent = '';
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        });
+        if (res.ok) {
+          window.location.href = '/admin/dashboard.html';
+        } else {
+          const data = await res.json().catch(() => ({}));
+          errEl.textContent = data.error || 'Login failed. Please try again.';
         }
-      });
-    }
+      } catch {
+        errEl.textContent = 'Could not reach the server. Please try again.';
+      }
+    });
   </script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
