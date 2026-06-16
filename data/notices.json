@@ -53,6 +53,15 @@
       "desc": "School will remain closed for winter vacations from 21st December 2024 to 1st January 2025. School reopens on 2nd January 2025.",
       "linkText": "Read Notice",
       "linkUrl": "#"
+    },
+    {
+      "date": "2026-06-17",
+      "tag": "Notice",
+      "tagClass": "imp",
+      "title": "Sample Notice for testing",
+      "desc": "Sample Notice for testing",
+      "linkText": "View →",
+      "linkUrl": "notices.html"
     }
   ]
 }
