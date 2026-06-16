@@ -8,366 +8,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --burg:#3D1320;--burg-mid:#5A1D2E;--burg-light:#7A2540;
-  --gold:#C8992B;--gold-lt:#DEB346;--gold-pale:#F6EDD3;
-  --cream:#F8F4EE;--cream-dk:#EDE6D8;--white:#FFFFFF;
-  --text:#1C1209;--text-mid:#4A3728;--text-m:#7A6A5A;
-  --bd:#DDD0BC;--bd-lt:#EEE6D8;
-  --nav-h:68px;--sp:96px;--r:4px;
-  --sh:0 2px 16px rgba(61,19,32,.08);--sh-lg:0 8px 40px rgba(61,19,32,.14);
-}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden}
-h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;font-weight:600;color:var(--burg)}
-img{max-width:100%;display:block}
-a{color:inherit}
-
-/* LAYOUT */
-.container{max-width:1160px;margin:0 auto;padding:0 32px}
-.section{padding:var(--sp) 0}
-.section.alt{background:var(--white)}
-.s-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
-.s-title{font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bottom:14px}
-.s-sub{font-size:1rem;color:var(--text-m);max-width:540px;margin-bottom:52px;line-height:1.75}
-.s-head{margin-bottom:52px}
-.s-head.c{text-align:center}.s-head.c .s-sub{margin:0 auto 52px}
-.divider{width:44px;height:2px;background:var(--gold);margin:18px 0 22px}
-.divider.c{margin:18px auto 22px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:var(--r);transition:all .22s;cursor:pointer;border:none}
-.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px)}
-.btn-out{background:transparent;color:var(--burg);border:2px solid var(--burg)}.btn-out:hover{background:var(--burg);color:#fff}
-.btn-wht{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}.btn-wht:hover{background:rgba(255,255,255,.1)}
-.tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:var(--gold-pale);color:var(--gold)}
-.tag.new{background:#E8F5E9;color:#2E7D32}.tag.imp{background:#FFEBEE;color:#C62828}
-
-/* NAV */
-#nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(61,19,32,.97);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid rgba(200,153,43,.2)}
-.nav-inner{display:flex;align-items:center;height:100%;max-width:1280px;margin:0 auto;padding:0 28px;gap:24px}
-.nav-brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
-.nav-brand img{width:40px;height:40px;object-fit:contain;border-radius:50%;border:1.5px solid rgba(200,153,43,.35);padding:3px;background:rgba(255,255,255,.06)}
-.nav-brand-txt{display:flex;flex-direction:column;line-height:1.2}
-.nav-brand-txt .nm{font-family:'Cormorant Garamond',serif;font-size:13.5px;font-weight:600;color:#fff;letter-spacing:.02em}
-.nav-brand-txt .sb{font-size:9.5px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase}
-.nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin-left:auto}
-.nav-links>li{position:relative}
-.nav-links>li>a{display:flex;align-items:center;gap:3px;padding:7px 10px;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.78);text-decoration:none;letter-spacing:.05em;text-transform:uppercase;border-radius:3px;transition:color .18s,background .18s;white-space:nowrap}
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold-lt);background:rgba(200,153,43,.1)}
-.ch{font-size:8px;opacity:.55;transition:transform .2s}
-.nav-links>li:hover .ch{transform:rotate(180deg)}
-.drop{position:absolute;top:calc(100% + 6px);left:0;min-width:210px;background:var(--burg);border:1px solid rgba(200,153,43,.2);border-radius:5px;padding:6px 0;box-shadow:0 14px 36px rgba(0,0,0,.28);opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s;z-index:100}
-.nav-links>li:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
-.drop a{display:block;padding:9px 18px;font-size:12px;color:rgba(255,255,255,.72);text-decoration:none;transition:all .14s;letter-spacing:.03em}
-.drop a:hover{color:var(--gold-lt);background:rgba(200,153,43,.1);padding-left:24px}
-.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin-left:auto;background:none;border:none}
-.hbg span{display:block;width:22px;height:2px;background:#fff;transition:all .3s;border-radius:1px}
-.hbg.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hbg.open span:nth-child(2){opacity:0}
-.hbg.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mob-nav{display:none;position:fixed;inset:0;background:var(--burg);z-index:999;padding:calc(var(--nav-h) + 20px) 28px 32px;overflow-y:auto;flex-direction:column}
-.mob-nav.open{display:flex}
-.mob-nav a{display:block;padding:13px 0;font-size:1rem;color:rgba(255,255,255,.82);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s}
-.mob-nav a:hover{color:var(--gold-lt)}
-.mob-cat{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold-lt);padding:16px 0 4px;border-bottom:none !important}
-
-/* HERO */
-#hero{min-height:100vh;background:var(--burg);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:calc(var(--nav-h) + 40px) 32px 80px}
-#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(200,153,43,.07) 0%,transparent 55%),radial-gradient(circle at 80% 70%,rgba(200,153,43,.05) 0%,transparent 55%)}
-#hero::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='28,2 54,15 54,41 28,54 2,41 2,15' fill='none' stroke='rgba(200,153,43,0.055)' stroke-width='1'/%3E%3C/svg%3E");background-size:56px 56px;opacity:.7}
-.hero-c{position:relative;z-index:1;text-align:center;max-width:860px}
-.hero-logo{width:108px;height:108px;object-fit:contain;border-radius:50%;border:2px solid rgba(200,153,43,.38);padding:6px;margin:0 auto 32px;background:rgba(255,255,255,.05);animation:fdIn .9s ease both}
-.hero-kicker{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;animation:fuIn .9s ease .1s both}
-.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:6px;animation:fuIn .9s ease .2s both;letter-spacing:-.01em}
-.hero-h1 span{color:var(--gold-lt)}
-.hero-loc{font-size:12px;font-weight:400;letter-spacing:.22em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:28px;animation:fuIn .9s ease .3s both}
-.hero-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,2.3vw,1.45rem);font-style:italic;color:rgba(255,255,255,.6);margin-bottom:52px;max-width:480px;margin-left:auto;margin-right:auto;animation:fuIn .9s ease .4s both}
-.hero-stats{display:flex;justify-content:center;gap:0;animation:fuIn .9s ease .5s both;border:1px solid rgba(200,153,43,.18);border-radius:6px;overflow:hidden}
-.h-stat{padding:24px 44px;border-left:1px solid rgba(200,153,43,.18);text-align:center;flex:1;min-width:140px}
-.h-stat:first-child{border-left:none}
-.h-stat-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold-lt);line-height:1;display:block;margin-bottom:5px}
-.h-stat-l{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;animation:fuIn 1s ease .9s both}
-.hero-scroll span{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.scroll-bar{width:1px;height:36px;background:linear-gradient(to bottom,rgba(200,153,43,.6),transparent);animation:scrollP 2s ease-in-out infinite}
-
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.about-text p{color:var(--text-mid);margin-bottom:18px;line-height:1.82;font-size:.97rem}
-.pc{background:var(--burg);border-radius:8px;overflow:hidden;box-shadow:var(--sh-lg)}
-.pc-top{background:linear-gradient(135deg,var(--burg-mid),var(--burg-light));padding:28px;text-align:center;border-bottom:1px solid rgba(200,153,43,.2)}
-.pc-photo{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin:0 auto 14px}
-.pc-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:#fff;margin-bottom:3px}
-.pc-role{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
-.pc-qual{font-size:.8rem;color:rgba(255,255,255,.55);margin-top:4px}
-.pc-body{padding:28px}
-.qm{font-family:'Cormorant Garamond',serif;font-size:4.5rem;line-height:.4;color:var(--gold);opacity:.35;display:block;margin-bottom:14px}
-.pc-body p{font-size:.87rem;color:rgba(255,255,255,.72);line-height:1.78;margin-bottom:10px}
-
-/* FEATURES */
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
-.feat-card{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:26px 22px;transition:all .22s;border-top:3px solid transparent}
-.feat-card:hover{border-top-color:var(--gold);transform:translateY(-3px);box-shadow:var(--sh)}
-.feat-icon{font-size:1.7rem;margin-bottom:14px;display:block}
-.feat-card h3{font-size:1.05rem;font-weight:600;color:var(--burg);margin-bottom:7px}
-.feat-card p{font-size:.845rem;color:var(--text-m);line-height:1.62}
-
-/* TABS */
-.tabs{border-bottom:2px solid var(--bd);display:flex;gap:0;margin-bottom:44px;overflow-x:auto}
-.tab-btn{background:none;border:none;padding:13px 26px;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-m);cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all .18s;white-space:nowrap}
-.tab-btn.active,.tab-btn:hover{color:var(--burg);border-bottom-color:var(--gold)}
-.tab-pnl{display:none}.tab-pnl.active{display:block}
-
-/* TABLES */
-.info-tbl{width:100%;border-collapse:collapse}
-.info-tbl tr{border-bottom:1px solid var(--bd-lt)}
-.info-tbl tr:last-child{border-bottom:none}
-.info-tbl td{padding:13px 14px;font-size:.89rem;vertical-align:top}
-.info-tbl td:first-child{font-weight:600;color:var(--burg);width:40%}
-.info-tbl td:last-child{color:var(--text-mid)}
-.info-tbl tr:nth-child(even) td{background:var(--cream)}
-
-/* DOC CARDS */
-.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
-.doc-card{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .2s}
-.doc-card:hover{box-shadow:var(--sh)}
-.doc-icon{font-size:1.9rem}
-.doc-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--burg)}
-.doc-sub{font-size:.78rem;color:var(--text-m)}
-.doc-lnk{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.05em;text-transform:uppercase;margin-top:auto;padding-top:8px;border-top:1px solid var(--bd-lt)}
-.doc-lnk:hover{color:var(--burg)}
-
-/* RESULTS */
-.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px}
-.res-card{background:var(--burg);border-radius:7px;padding:26px 20px;text-align:center}
-.res-cls{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;display:block}
-.res-stream{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:#fff;margin-bottom:14px}
-.res-score{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold-lt);line-height:1}
-.res-score sup{font-size:1.1rem}
-.res-lbl{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
-
-/* STAFF */
-.staff-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:18px}
-.staff-card{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:26px 20px;text-align:center}
-.staff-n{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;color:var(--burg);line-height:1;display:block}
-.staff-t{font-size:.82rem;color:var(--text-m);margin-top:7px;font-weight:500}
-
-/* INFRA */
-.infra-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.infra-tbl{width:100%;border-collapse:collapse}
-.infra-tbl tr{border-bottom:1px solid var(--bd-lt)}
-.infra-tbl td{padding:13px 0;font-size:.89rem}
-.infra-tbl td:first-child{color:var(--text-mid);font-weight:500}
-.infra-tbl td:last-child{color:var(--burg);font-weight:700;text-align:right;font-family:'Cormorant Garamond',serif;font-size:1.08rem}
-.infra-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.infra-photo{aspect-ratio:4/3;object-fit:cover;border-radius:4px;width:100%;transition:opacity .2s}
-.infra-photo:hover{opacity:.88}
-.infra-sub{margin-top:52px}
-.infra-sub h3{font-size:1.4rem;font-weight:600;color:var(--burg);margin-bottom:22px}
-.infra-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
-.infra-cat{position:relative;border-radius:6px;overflow:hidden;cursor:pointer}
-.infra-cat img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .35s}
-.infra-cat:hover img{transform:scale(1.05)}
-.infra-cat-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(61,19,32,.88),transparent);padding:28px 12px 10px;font-size:.8rem;font-weight:600;color:#fff;letter-spacing:.04em}
-
-/* STUDENTS */
-.houses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:56px}
-.house-card{border-radius:8px;padding:32px 18px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.house-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,transparent 60%)}
-.h-pratap{background:linear-gradient(135deg,#B8400A,#D4531A)}
-.h-lakshmi{background:linear-gradient(135deg,#1A5C2A,#247837)}
-.h-shivaji{background:linear-gradient(135deg,#1A3A7A,#2250A5)}
-.h-bhagat{background:linear-gradient(135deg,#5C1A6E,#7B2494)}
-.house-icon{font-size:2.2rem;display:block;margin-bottom:10px}
-.house-nm{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:5px}
-.house-sub{font-size:10px;opacity:.65;letter-spacing:.1em;text-transform:uppercase}
-.clubs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:18px}
-.club-card{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:22px;transition:all .2s}
-.club-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--sh)}
-.club-icon{font-size:1.5rem;margin-bottom:10px;display:block}
-.club-nm{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--burg);margin-bottom:5px}
-.club-desc{font-size:.8rem;color:var(--text-m);line-height:1.58}
-.enroll-tbl{width:100%;border-collapse:collapse}
-.enroll-tbl th{background:var(--burg);color:#fff;padding:11px 14px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-.enroll-tbl td{padding:11px 14px;font-size:.87rem;border-bottom:1px solid var(--bd-lt);color:var(--text-mid)}
-.enroll-tbl tr:nth-child(even) td{background:var(--cream)}
-.enroll-tbl tfoot td{font-weight:700;background:var(--gold-pale);color:var(--burg);border-bottom:none}
-.syllabus-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:14px;margin-top:40px}
-.syl-card{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:18px;border-left:4px solid var(--gold)}
-.syl-cls{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;display:block}
-.syl-card h4{font-size:.92rem;font-weight:600;color:var(--burg);margin-bottom:4px}
-.syl-card p{font-size:.78rem;color:var(--text-m);line-height:1.55}
-.slc-box{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:28px;margin-top:32px}
-.slc-box h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--burg);margin-bottom:14px}
-.slc-box p,.slc-box li{font-size:.88rem;color:var(--text-m);margin-bottom:10px;line-height:1.68}
-.slc-box ul{margin-left:18px}
-
-/* GALLERY */
-.gal-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
-.fil-btn{background:none;border:1px solid var(--bd);border-radius:40px;padding:7px 18px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-m);cursor:pointer;transition:all .18s}
-.fil-btn.active,.fil-btn:hover{background:var(--burg);border-color:var(--burg);color:#fff}
-.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:14px}
-.gal-item{position:relative;border-radius:6px;overflow:hidden;background:var(--cream-dk);cursor:pointer}
-.gal-item img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .38s}
-.gal-item:hover img{transform:scale(1.04)}
-.gal-ov{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(61,19,32,.88),transparent);padding:36px 14px 14px;opacity:0;transform:translateY(4px);transition:all .28s}
-.gal-item:hover .gal-ov{opacity:1;transform:translateY(0)}
-.gal-date{font-size:9.5px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;display:block}
-.gal-cap{font-size:.8rem;color:#fff;font-weight:500}
-
-/* LIGHTBOX */
-.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center;padding:28px}
-.lb.open{display:flex}
-.lb img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px}
-.lb-close{position:absolute;top:20px;right:20px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;opacity:.65;transition:opacity .18s;line-height:1}
-.lb-close:hover{opacity:1}
-.lb-cap{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);text-align:center;color:rgba(255,255,255,.75);font-size:.85rem}
-
-/* NOTICES */
-.notices-list{display:flex;flex-direction:column}
-.notice-item{display:flex;align-items:flex-start;gap:20px;padding:18px 0;border-bottom:1px solid var(--bd-lt);transition:padding-left .2s}
-.notice-item:hover{padding-left:6px}
-.notice-item:last-child{border-bottom:none}
-.n-date{flex-shrink:0;width:56px;text-align:center;background:var(--burg);border-radius:4px;padding:7px 4px}
-.n-date .dy{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:700;line-height:1;display:block;color:var(--gold-lt)}
-.n-date .mo{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.n-body{flex:1}
-.n-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--burg);margin:5px 0 3px}
-.n-desc{font-size:.83rem;color:var(--text-m)}
-.n-link{flex-shrink:0;display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;color:var(--gold);text-decoration:none;padding:5px 11px;border:1px solid var(--gold);border-radius:3px;transition:all .18s;align-self:center;white-space:nowrap}
-.n-link:hover{background:var(--gold);color:#fff}
-
-/* DOWNLOADS */
-.dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
-.dl-card{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:24px;display:flex;align-items:center;gap:18px;transition:all .2s;text-decoration:none;color:inherit}
-.dl-card:hover{border-color:var(--gold);box-shadow:var(--sh);transform:translateY(-2px)}
-.dl-icon{width:52px;height:52px;background:var(--gold-pale);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1.55rem;flex-shrink:0}
-.dl-info{flex:1}
-.dl-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--burg);margin-bottom:3px}
-.dl-meta{font-size:.78rem;color:var(--text-m)}
-.dl-arr{color:var(--gold);font-size:1.1rem}
-
-/* EXAM */
-.exam-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
-.exam-s-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--burg);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--gold)}
-.ds-tbl{width:100%;border-collapse:collapse}
-.ds-tbl th{background:var(--burg);color:#fff;padding:11px 14px;text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-.ds-tbl td{padding:11px 14px;font-size:.87rem;border-bottom:1px solid var(--bd-lt);color:var(--text-mid)}
-.ds-tbl tr:nth-child(even) td{background:var(--cream)}
-.ds-tbl td:first-child{font-weight:600;color:var(--burg)}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
-.c-item{display:flex;gap:14px;margin-bottom:24px;align-items:flex-start}
-.c-icon{width:38px;height:38px;background:var(--gold-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
-.c-lbl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;display:block}
-.c-val{font-size:.88rem;color:var(--text-mid);line-height:1.6}
-.c-val a{text-decoration:none}.c-val a:hover{color:var(--burg)}
-.socials{display:flex;gap:10px;margin-top:28px}
-.soc-lnk{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--bd);border-radius:50%;text-decoration:none;font-size:.95rem;color:var(--text-m);transition:all .2s}
-.soc-lnk:hover{background:var(--burg);border-color:var(--burg);color:#fff;transform:translateY(-2px)}
-.map-wrap{border-radius:8px;overflow:hidden;border:1px solid var(--bd-lt);box-shadow:var(--sh)}
-.map-wrap iframe{width:100%;height:360px;border:none;display:block}
-
-/* FOOTER */
-#footer{background:var(--burg);padding:56px 0 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px;border-bottom:1px solid rgba(200,153,43,.18)}
-.foot-brand img{width:56px;height:56px;object-fit:contain;border-radius:50%;border:1.5px solid rgba(200,153,43,.28);padding:4px;margin-bottom:14px}
-.foot-brand p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.72;margin-bottom:6px}
-.foot-brand .udise{font-size:10.5px;color:var(--gold);letter-spacing:.07em;text-transform:uppercase}
-.foot-col h4{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.foot-col ul{list-style:none}
-.foot-col ul li{margin-bottom:9px}
-.foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s}
-.foot-col ul li a:hover{color:var(--gold-lt)}
-.foot-btm{padding:20px 0;display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:rgba(255,255,255,.28)}
-.foot-btm a{color:var(--gold);text-decoration:none}
-
-/* SCROLL TOP */
-.scroll-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;background:var(--burg);color:#fff;border:none;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .28s;z-index:500;box-shadow:var(--sh)}
-.scroll-top.show{opacity:1;visibility:visible}
-.scroll-top:hover{background:var(--burg-mid);transform:translateY(-2px)}
-
-/* REVEAL */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
-.rv.in{opacity:1;transform:translateY(0)}
-
-/* ANIMATIONS */
-@keyframes fdIn{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fuIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes scrollP{0%,100%{opacity:.4}50%{opacity:.8}}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .nav-links{display:none}.hbg{display:flex}
-  .about-grid,.infra-grid,.exam-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
-  .houses-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:640px){
-  :root{--sp:60px}
-  .container{padding:0 18px}
-  .hero-stats{flex-direction:column}
-  .h-stat{border-left:none;border-top:1px solid rgba(200,153,43,.18);padding:18px 0}
-  .h-stat:first-child{border-top:none}
-  .houses-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr}
-  .foot-btm{flex-direction:column;gap:6px;text-align:center}
-  .tabs{gap:0}
-  .tab-btn{padding:12px 16px;font-size:11px}
-}
-
-/* NOTICE BOARD TICKER */
-.ticker-wrap{background:var(--burg);padding:10px 0;overflow:hidden;border-bottom:1px solid rgba(200,153,43,.2)}
-.ticker-inner{display:flex;align-items:center;gap:0}
-.ticker-label{background:var(--gold);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 16px;white-space:nowrap;flex-shrink:0;margin-right:24px}
-.ticker-track{display:flex;gap:64px;animation:ticker 30s linear infinite;white-space:nowrap}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{font-size:12px;color:rgba(255,255,255,.78);letter-spacing:.03em;flex-shrink:0}
-.ticker-item a{color:var(--gold-lt);text-decoration:none}
-.ticker-item a:hover{text-decoration:underline}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ACADEMIC CALENDAR */
-.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.cal-card{background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:18px}
-.cal-month{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block}
-.cal-card ul{list-style:none}
-.cal-card ul li{font-size:.82rem;color:var(--text-m);padding:5px 0;border-bottom:1px solid var(--bd-lt);display:flex;gap:8px;align-items:baseline}
-.cal-card ul li:last-child{border-bottom:none}
-.cal-card ul li::before{content:'·';color:var(--gold);flex-shrink:0}
-
-/* SMC TABLE */
-.smc-tbl{width:100%;border-collapse:collapse;margin-top:16px}
-.smc-tbl th{background:var(--burg);color:#fff;padding:11px 14px;text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-.smc-tbl td{padding:11px 14px;font-size:.87rem;border-bottom:1px solid var(--bd-lt);color:var(--text-mid)}
-.smc-tbl tr:nth-child(even) td{background:var(--cream)}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="has-ticker">
 
-<!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-inner">
     <div class="ticker-label">📢 Latest</div>
     <div class="ticker-track">
-      <span class="ticker-item">📋 Datesheet for Half-Yearly Examinations 2025–26 — <a href="#">Download</a></span>
-      <span class="ticker-item">🎉 Admissions Open for Session 2025–26 — <a href="#">Apply Now</a></span>
+      <span class="ticker-item">📋 Datesheet for Half-Yearly Examinations 2025–26 — <a href="downloads.html">Download</a></span>
+      <span class="ticker-item">🎉 Admissions Open for Session 2025–26 — <a href="downloads.html">Apply Now</a></span>
       <span class="ticker-item">🏆 Class 12 Board Results — Maximum Scored 100% in All Streams!</span>
       <span class="ticker-item">🌿 Annual Plantation Drive — July 2025</span>
-      <span class="ticker-item">📋 Datesheet for Half-Yearly Examinations 2025–26 — <a href="#">Download</a></span>
-      <span class="ticker-item">🎉 Admissions Open for Session 2025–26 — <a href="#">Apply Now</a></span>
+      <span class="ticker-item">📋 Datesheet for Half-Yearly Examinations 2025–26 — <a href="downloads.html">Download</a></span>
+      <span class="ticker-item">🎉 Admissions Open for Session 2025–26 — <a href="downloads.html">Apply Now</a></span>
       <span class="ticker-item">🏆 Class 12 Board Results — Maximum Scored 100% in All Streams!</span>
       <span class="ticker-item">🌿 Annual Plantation Drive — July 2025</span>
     </div>
   </div>
 </div>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-brand">
+    <a href="index.html" class="nav-brand">
       <img src="assets/logo.jpg" alt="School Logo">
       <div class="nav-brand-txt">
         <span class="nm">PM SHRI Govt. Sr. Sec. School</span>
@@ -375,87 +38,70 @@ a{color:inherit}
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li>
-        <a href="#about">About <span class="ch">▾</span></a>
+        <a href="about.html">About <span class="ch">▾</span></a>
         <div class="drop">
-          <a href="#about">About the School</a>
-          <a href="#about">Principal's Message</a>
+          <a href="about.html">About the School</a>
+          <a href="about.html#principal">Principal's Message</a>
         </div>
       </li>
       <li>
-        <a href="#features">Academic <span class="ch">▾</span></a>
+        <a href="academics.html">Academics <span class="ch">▾</span></a>
         <div class="drop">
-          <a href="#features">Salient Features</a>
-          <a href="#students">Curriculum & Syllabus</a>
-          <a href="#exam">Exam Schedule</a>
+          <a href="academics.html">Salient Features</a>
+          <a href="academics.html#syllabus">Curriculum &amp; Syllabus</a>
+          <a href="exam.html">Exam Datesheet &amp; Results</a>
         </div>
       </li>
+      <li><a href="disclosure.html">Disclosure</a></li>
+      <li><a href="staff.html">Staff</a></li>
+      <li><a href="infrastructure.html">Infrastructure</a></li>
       <li>
-        <a href="#disclosure">Disclosure <span class="ch">▾</span></a>
+        <a href="students.html">Students <span class="ch">▾</span></a>
         <div class="drop">
-          <a href="#disclosure">General Information</a>
-          <a href="#disclosure">Documents</a>
-          <a href="#disclosure">Results & Academics</a>
+          <a href="students.html">School Houses</a>
+          <a href="students.html#clubs">Clubs &amp; Activities</a>
+          <a href="students.html#enroll">Enrollment</a>
+          <a href="students.html#slc">SLC Tracking</a>
         </div>
       </li>
-      <li><a href="#staff">Staff</a></li>
-      <li><a href="#infra">Infrastructure</a></li>
-      <li>
-        <a href="#students">Students <span class="ch">▾</span></a>
-        <div class="drop">
-          <a href="#students">School Houses</a>
-          <a href="#students">Clubs & Activities</a>
-          <a href="#students">Enrollment</a>
-          <a href="#students">SLC Tracking</a>
-        </div>
-      </li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#notices">Notices</a></li>
-      <li><a href="#downloads">Downloads</a></li>
-      <li>
-        <a href="#exam">Exam <span class="ch">▾</span></a>
-        <div class="drop">
-          <a href="#exam">Datesheet</a>
-          <a href="#exam">Results</a>
-        </div>
-      </li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="notices.html">Notices</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="hbg" id="hbg" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- MOBILE NAV -->
 <nav class="mob-nav" id="mob-nav">
-  <a href="#hero" class="mob-nav-link">Home</a>
+  <a href="index.html">Home</a>
   <span class="mob-cat">About</span>
-  <a href="#about" class="mob-nav-link">About the School</a>
-  <a href="#about" class="mob-nav-link">Principal's Message</a>
+  <a href="about.html">About the School</a>
+  <a href="about.html#principal">Principal's Message</a>
   <span class="mob-cat">Academics</span>
-  <a href="#features" class="mob-nav-link">Salient Features</a>
-  <a href="#students" class="mob-nav-link">Curriculum & Syllabus</a>
+  <a href="academics.html">Salient Features</a>
+  <a href="academics.html#syllabus">Curriculum &amp; Syllabus</a>
+  <a href="exam.html">Exam Datesheet &amp; Results</a>
   <span class="mob-cat">Public Disclosure</span>
-  <a href="#disclosure" class="mob-nav-link">General Information</a>
-  <a href="#disclosure" class="mob-nav-link">Documents</a>
-  <a href="#disclosure" class="mob-nav-link">Results & Academics</a>
-  <span class="mob-cat">Campus & People</span>
-  <a href="#staff" class="mob-nav-link">Staff</a>
-  <a href="#infra" class="mob-nav-link">Infrastructure</a>
+  <a href="disclosure.html">Disclosure Information</a>
+  <span class="mob-cat">Campus &amp; People</span>
+  <a href="staff.html">Staff</a>
+  <a href="infrastructure.html">Infrastructure</a>
   <span class="mob-cat">Students</span>
-  <a href="#students" class="mob-nav-link">School Houses</a>
-  <a href="#students" class="mob-nav-link">Clubs</a>
-  <a href="#students" class="mob-nav-link">Enrollment</a>
-  <a href="#students" class="mob-nav-link">SLC Tracking</a>
-  <span class="mob-cat">Media & Info</span>
-  <a href="#gallery" class="mob-nav-link">Gallery</a>
-  <a href="#notices" class="mob-nav-link">Notices</a>
-  <a href="#downloads" class="mob-nav-link">Downloads</a>
-  <a href="#exam" class="mob-nav-link">Exam / Datesheet</a>
-  <a href="#contact" class="mob-nav-link">Contact</a>
+  <a href="students.html">School Houses</a>
+  <a href="students.html#clubs">Clubs</a>
+  <a href="students.html#enroll">Enrollment</a>
+  <a href="students.html#slc">SLC Tracking</a>
+  <span class="mob-cat">Media &amp; Info</span>
+  <a href="gallery.html">Gallery</a>
+  <a href="notices.html">Notices</a>
+  <a href="downloads.html">Downloads</a>
+  <a href="contact.html">Contact</a>
 </nav>
+
+<main class="no-pad">
 
 <!-- HERO -->
 <section id="hero">
@@ -465,754 +111,149 @@ a{color:inherit}
     <h1 class="hero-h1">Govt. Sr. Sec. School<br><span>Bhangrola</span></h1>
     <p class="hero-loc">Block Farrukhnagar &bull; District Gurugram &bull; Haryana</p>
     <p class="hero-quote">"Education builds confidence and destroys fear"</p>
-    <div class="hero-stats">
-      <div class="h-stat">
-        <span class="h-stat-n" data-count="1117">1117</span>
-        <span class="h-stat-l">Students</span>
-      </div>
-      <div class="h-stat">
-        <span class="h-stat-n" data-count="20">20</span>
-        <span class="h-stat-l">Awards &amp; Recognitions</span>
-      </div>
-      <div class="h-stat">
-        <span class="h-stat-n" data-count="24">24</span>
-        <span class="h-stat-l">Classrooms &amp; Labs</span>
-      </div>
-      <div class="h-stat">
-        <span class="h-stat-n" data-count="33">33</span>
-        <span class="h-stat-l">Educators</span>
-      </div>
+    <div class="hero-cta">
+      <a href="about.html" class="btn btn-gold">About Our School</a>
+      <a href="contact.html" class="btn btn-wht">Get in Touch</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-bar"></div>
+
+  <div class="carousel" id="carousel">
+    <div class="carousel-track" id="car-track">
+      <div class="carousel-slide"><img src="assets/schoolgrouppic.jpeg" alt="School Family"><div class="carousel-cap"><span class="cc-date">School Family</span><span class="cc-title">1,117+ Students, One Proud School</span></div></div>
+      <div class="carousel-slide"><img src="assets/recognition1.jpg" alt="Recognition"><div class="carousel-cap"><span class="cc-date">Recognition</span><span class="cc-title">Celebrating National &amp; State Honours</span></div></div>
+      <div class="carousel-slide"><img src="assets/activities2.jpeg" alt="Cultural Programme"><div class="carousel-cap"><span class="cc-date">Activities</span><span class="cc-title">Vibrant Cultural &amp; Co-curricular Life</span></div></div>
+      <div class="carousel-slide"><img src="assets/kidsachievements1.jpeg" alt="Student Achievements"><div class="carousel-cap"><span class="cc-date">Achievements</span><span class="cc-title">Our Students, Our Pride</span></div></div>
+      <div class="carousel-slide"><img src="assets/recognition3.jpg" alt="PM SHRI Recognition"><div class="carousel-cap"><span class="cc-date">PM SHRI</span><span class="cc-title">Selected Under the PM SHRI Scheme</span></div></div>
+      <div class="carousel-slide"><img src="assets/activities6.jpeg" alt="Independence Day"><div class="carousel-cap"><span class="cc-date">Celebrations</span><span class="cc-title">Independence Day at PM SHRI Bhangrola</span></div></div>
+    </div>
+    <button class="carousel-arrow prev" id="car-prev" aria-label="Previous slide">‹</button>
+    <button class="carousel-arrow next" id="car-next" aria-label="Next slide">›</button>
+    <div class="carousel-dots" id="car-dots"></div>
   </div>
+  <div style="height:48px"></div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
+<!-- STAT STRIP -->
+<div class="hero-bottom-strip">
   <div class="container">
-    <div class="about-grid">
-      <!-- Left: About text -->
-      <div>
-        <span class="s-label">About the School</span>
-        <h2 class="s-title">A Legacy of<br>Excellence in Education</h2>
-        <div class="divider"></div>
-        <div class="about-text">
-          <p>PM SHRI Govt. Sr. Sec. School, Bhangrola, established under the prestigious PM SHRI (Prime Minister Schools for Rising India) scheme, stands as a beacon of quality education in the heart of Gurugram district. Situated in the serene environs of Bhangrola village, Block Farrukhnagar, the school proudly serves over 1,117 students from the surrounding communities.</p>
-          <p>Affiliated with the Haryana Board of School Education, the institution follows a holistic educational framework that nurtures academic excellence alongside personal growth. Our campus spans an impressive 32,554 square metres, housing 20 well-ventilated classrooms, 4 modern laboratories including a computer lab, and a richly stocked library — all designed to create an enriching learning environment.</p>
-          <p>Our vision is to empower every learner with knowledge, values, and skills that enable them to contribute meaningfully to society. We believe in developing not just academically sound individuals but compassionate, responsible citizens equipped for the challenges of the 21st century.</p>
-          <p>The school takes pride in its team of 33 dedicated educators whose passion for teaching has driven students to achieve 100% scores in board examinations. With 20+ national and state recognitions, PM SHRI Govt. Sr. Sec. School, Bhangrola continues to grow in its mission to provide transformative education to every student who walks through its gates.</p>
-        </div>
-      </div>
-      <!-- Right: Principal card -->
-      <div>
-        <span class="s-label">Principal's Message</span>
-        <h2 class="s-title">From the<br>Principal's Desk</h2>
-        <div class="divider"></div>
-        <div class="pc">
-          <div class="pc-top">
-            <img src="assets/principal.jpg" alt="Principal Mrs Bhawana Dewan" class="pc-photo">
-            <div class="pc-name">Mrs. Bhawna Wadhwa</div>
-            <div class="pc-role">Principal</div>
-            <div class="pc-qual">M.Sc (Physics), B.Ed, UGC Qualified</div>
-          </div>
-          <div class="pc-body">
-            <span class="qm">"</span>
-            <p>It is with immense pleasure and anticipation that I extend a warm welcome to all of you as we embark on another journey of PM SHRI Govt. Sr. Sec. School. We assure boundless possibilities and lifelong pursuit of knowledge, growth and fulfillment.</p>
-            <p>To our esteemed faculty members, I extend my deepest gratitude for your guidance, passion and commitment to nurturing the minds and hearts of our students.</p>
-            <p>To our supportive parents, I express heartfelt appreciation for your trust in our mission of holistic education. Together let us embrace the challenges and opportunities with determination and collaboration.</p>
-            <p style="color:rgba(200,153,43,.9);font-weight:500;margin-top:16px">Best Regards,<br>Principal Mrs. Bhawna Wadhwa</p>
-          </div>
-        </div>
-      </div>
+    <div class="stat-strip rv">
+      <div class="stat-item"><span class="stat-n" data-count="1117">1117</span><span class="stat-l">Students</span></div>
+      <div class="stat-item"><span class="stat-n" data-count="20">20+</span><span class="stat-l">Awards &amp; Recognitions</span></div>
+      <div class="stat-item"><span class="stat-n" data-count="24">24+</span><span class="stat-l">Classrooms &amp; Labs</span></div>
+      <div class="stat-item"><span class="stat-n" data-count="33">33+</span><span class="stat-l">Educators</span></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FEATURES -->
-<section id="features" class="section alt">
+<!-- EXPLORE -->
+<section class="section alt">
   <div class="container">
     <div class="s-head c rv">
-      <span class="s-label">Why Choose Us</span>
-      <h2 class="s-title">Salient Features</h2>
+      <span class="s-label">Explore</span>
+      <h2 class="s-title">Discover Our School</h2>
       <div class="divider c"></div>
-      <p class="s-sub">Committed to holistic development through academic rigour, modern infrastructure, and vibrant co-curricular activities.</p>
+      <p class="s-sub">Everything you need to know about academics, admissions, campus life, and more.</p>
     </div>
-    <div class="feat-grid">
-      <div class="feat-card rv"><span class="feat-icon">🏛️</span><h3>PM SHRI Recognised</h3><p>Selected under the central government's PM SHRI scheme, ensuring world-class facilities and pedagogical standards.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">📚</span><h3>HBSE Affiliated Curriculum</h3><p>Comprehensive Haryana Board curriculum from Class 6 to 12 with Science, Arts, and Commerce streams.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">🔬</span><h3>Modern Laboratories</h3><p>Well-equipped Physics, Chemistry, Biology, and Computer Science labs fostering scientific temper and innovation.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">💻</span><h3>Digital Classrooms</h3><p>Smart boards and digital learning tools integrated in classrooms for an engaging, technology-driven education.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">📖</span><h3>Well-Stocked Library</h3><p>A rich collection of textbooks, reference books, periodicals, and digital resources to support learning at every level.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">🏆</span><h3>20+ Awards &amp; Recognitions</h3><p>Proud recipient of national and state-level honours for academic excellence and co-curricular achievements.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">🌿</span><h3>Eco &amp; Green Initiatives</h3><p>Active Eco Club drives plantation campaigns, cleanliness initiatives, and environmental awareness programmes.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">⚽</span><h3>Sports &amp; Physical Education</h3><p>Dedicated sports grounds for football, kabaddi, athletics, and indoor games promoting fitness and team spirit.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">🎭</span><h3>Cultural Activities</h3><p>Annual cultural fests, literary competitions, NCC, NSS, and inter-house events to discover every student's potential.</p></div>
-      <div class="feat-card rv"><span class="feat-icon">🧭</span><h3>Guidance &amp; Counseling</h3><p>Dedicated career counseling and psychological support ensuring every student is guided toward a bright future.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PUBLIC DISCLOSURE -->
-<section id="disclosure" class="section">
-  <div class="container">
-    <div class="s-head rv">
-      <span class="s-label">Transparency &amp; Accountability</span>
-      <h2 class="s-title">Public Disclosure</h2>
-      <div class="divider"></div>
-      <p class="s-sub">In compliance with regulatory requirements, all relevant school information is made publicly available below.</p>
-    </div>
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="gen">General Information</button>
-      <button class="tab-btn" data-tab="docs">Documents &amp; Information</button>
-      <button class="tab-btn" data-tab="results">Results &amp; Academics</button>
-      <button class="tab-btn" data-tab="cal">Academic Calendar</button>
-      <button class="tab-btn" data-tab="smc">Management Committee</button>
-    </div>
-
-    <!-- General Info -->
-    <div class="tab-pnl active" id="tab-gen">
-      <table class="info-tbl">
-        <tr><td>Name of School</td><td>PM SHRI Govt. Sr. Sec. School, Bhangrola</td></tr>
-        <tr><td>UDISE Number</td><td>06180405403</td></tr>
-        <tr><td>School Code</td><td>0747</td></tr>
-        <tr><td>Address</td><td>P.O. Bhangrola, Block Farrukhnagar, District Gurugram, Haryana</td></tr>
-        <tr><td>Principal Name &amp; Qualification</td><td>Mrs. Bhawna Wadhwa — M.Sc (Physics), B.Ed, UGC Qualified</td></tr>
-        <tr><td>Email</td><td><a href="mailto:gsssbhangrola2013@gmail.com">gsssbhangrola2013@gmail.com</a></td></tr>
-        <tr><td>Phone</td><td>xxxxxxxxxx</td></tr>
-        <tr><td>Affiliation Board</td><td>Haryana Board of School Education (HBSE)</td></tr>
-        <tr><td>School Category</td><td>Government Senior Secondary School</td></tr>
-        <tr><td>Classes Offered</td><td>Class VI to XII (Science, Arts &amp; Commerce)</td></tr>
-        <tr><td>Medium of Instruction</td><td>Hindi &amp; English</td></tr>
-        <tr><td>Total Campus Area</td><td>32,554.5685 Sq. Mtrs.</td></tr>
-        <tr><td>Internet Facility</td><td>Yes</td></tr>
-      </table>
-    </div>
-
-    <!-- Documents -->
-    <div class="tab-pnl" id="tab-docs">
-      <div class="doc-grid">
-        <div class="doc-card">
-          <div class="doc-icon">📄</div>
-          <div class="doc-title">NOC by State Government</div>
-          <div class="doc-sub">No Objection Certificate issued by Government of Haryana for operation of school</div>
-          <a href="#" class="doc-lnk">View Document →</a>
-        </div>
-        <div class="doc-card">
-          <div class="doc-icon">🏗️</div>
-          <div class="doc-title">Building Safety Certificate</div>
-          <div class="doc-sub">Certificate as per National Building Code ensuring structural safety of the school premises</div>
-          <a href="#" class="doc-lnk">View Document →</a>
-        </div>
-        <div class="doc-card">
-          <div class="doc-icon">🌾</div>
-          <div class="doc-title">Land Certificate</div>
-          <div class="doc-sub">Official land ownership/allotment certificate for school campus</div>
-          <a href="#" class="doc-lnk">View Document →</a>
-        </div>
-        <div class="doc-card">
-          <div class="doc-icon">💰</div>
-          <div class="doc-title">Fee Structure</div>
-          <div class="doc-sub">Approved fee schedule for all classes and streams for current academic session</div>
-          <a href="#" class="doc-lnk">Download PDF →</a>
-        </div>
-        <div class="doc-card">
-          <div class="doc-icon">🔥</div>
-          <div class="doc-title">Fire Safety Certificate</div>
-          <div class="doc-sub">Fire safety compliance certificate for all school buildings</div>
-          <a href="#" class="doc-lnk">View Document →</a>
-        </div>
-        <div class="doc-card">
-          <div class="doc-icon">📋</div>
-          <div class="doc-title">Self Certification</div>
-          <div class="doc-sub">Mandatory self-disclosure by the school as per board guidelines</div>
-          <a href="#" class="doc-lnk">View Document →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Results -->
-    <div class="tab-pnl" id="tab-results">
-      <p class="s-sub" style="margin-bottom:32px">Last Year Board Examination Results — Session 2024–25</p>
-      <div class="res-grid">
-        <div class="res-card">
-          <span class="res-cls">Class 10th</span>
-          <div class="res-stream">Secondary</div>
-          <div class="res-score">100<sup>%</sup></div>
-          <div class="res-lbl">Maximum Score</div>
-        </div>
-        <div class="res-card">
-          <span class="res-cls">Class 12th</span>
-          <div class="res-stream">Science</div>
-          <div class="res-score">100<sup>%</sup></div>
-          <div class="res-lbl">Maximum Score</div>
-        </div>
-        <div class="res-card">
-          <span class="res-cls">Class 12th</span>
-          <div class="res-stream">Arts</div>
-          <div class="res-score">100<sup>%</sup></div>
-          <div class="res-lbl">Maximum Score</div>
-        </div>
-        <div class="res-card">
-          <span class="res-cls">Class 12th</span>
-          <div class="res-stream">Commerce</div>
-          <div class="res-score">100<sup>%</sup></div>
-          <div class="res-lbl">Maximum Score</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Academic Calendar -->
-    <div class="tab-pnl" id="tab-cal">
-      <p class="s-sub" style="margin-bottom:28px">Academic Calendar — Session 2025–26</p>
-      <div class="cal-grid">
-        <div class="cal-card"><span class="cal-month">April 2025</span><ul><li>Session Commencement</li><li>Admission Process Begins</li><li>Parent-Teacher Meeting</li></ul></div>
-        <div class="cal-card"><span class="cal-month">May 2025</span><ul><li>Summer Vacations</li><li>Staff Development Programme</li></ul></div>
-        <div class="cal-card"><span class="cal-month">July 2025</span><ul><li>Plantation Drive</li><li>Half-Yearly Exam Begins</li></ul></div>
-        <div class="cal-card"><span class="cal-month">August 2025</span><ul><li>Independence Day Celebration</li><li>NSS Camp</li><li>Science Exhibition</li></ul></div>
-        <div class="cal-card"><span class="cal-month">October 2025</span><ul><li>Half-Yearly Results</li><li>Annual Sports Week</li><li>Diwali Break</li></ul></div>
-        <div class="cal-card"><span class="cal-month">November 2025</span><ul><li>Annual Cultural Fest</li><li>Career Counseling Session</li></ul></div>
-        <div class="cal-card"><span class="cal-month">December 2025</span><ul><li>Winter Vacations</li><li>Pre-Board Preparation</li></ul></div>
-        <div class="cal-card"><span class="cal-month">Jan–Mar 2026</span><ul><li>Pre-Board Examinations</li><li>Annual Board Exams</li><li>Annual Prize Distribution</li></ul></div>
-      </div>
-    </div>
-
-    <!-- SMC -->
-    <div class="tab-pnl" id="tab-smc">
-      <p class="s-sub" style="margin-bottom:20px">School Management Committee (SMC) — Session 2025–26</p>
-      <table class="smc-tbl">
-        <thead><tr><th>#</th><th>Name</th><th>Designation</th><th>Role</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Mrs. Bhawna Wadhwa</td><td>Principal</td><td>Chairperson</td></tr>
-          <tr><td>2</td><td>Mr. Rajesh Kumar</td><td>Parent Representative</td><td>Member</td></tr>
-          <tr><td>3</td><td>Mrs. Sunita Devi</td><td>Community Representative</td><td>Member</td></tr>
-          <tr><td>4</td><td>Mr. Amit Sharma</td><td>Senior Teacher</td><td>Member (Teaching Staff)</td></tr>
-          <tr><td>5</td><td>Mrs. Kavita Singh</td><td>Parent Representative</td><td>Member</td></tr>
-          <tr><td>6</td><td>Mr. Suresh Yadav</td><td>Panchayat Representative</td><td>Member (Local Body)</td></tr>
-          <tr><td>7</td><td>Mrs. Renu Bala</td><td>Parent Representative</td><td>Member</td></tr>
-        </tbody>
-      </table>
+    <div class="explore-grid">
+      <a href="about.html" class="explore-card rv">
+        <img src="assets/principal.jpg" alt="About the School">
+        <div class="explore-card-body"><span>Who We Are</span><h3>About Us</h3><p>Our story, vision and a message from the Principal's desk.</p></div>
+      </a>
+      <a href="academics.html" class="explore-card rv">
+        <img src="assets/activities1.jpeg" alt="Academics">
+        <div class="explore-card-body"><span>Learning</span><h3>Academics</h3><p>Salient features, curriculum and stream-wise syllabus.</p></div>
+      </a>
+      <a href="infrastructure.html" class="explore-card rv">
+        <img src="assets/activities4.jpeg" alt="Infrastructure">
+        <div class="explore-card-body"><span>Campus</span><h3>Infrastructure</h3><p>Classrooms, laboratories, library and sports facilities.</p></div>
+      </a>
+      <a href="students.html" class="explore-card rv">
+        <img src="assets/kidsachievements2.jpeg" alt="Students">
+        <div class="explore-card-body"><span>Student Life</span><h3>Houses &amp; Clubs</h3><p>Four houses, six clubs, and a vibrant student community.</p></div>
+      </a>
+      <a href="gallery.html" class="explore-card rv">
+        <img src="assets/recognition4.jpeg" alt="Gallery">
+        <div class="explore-card-body"><span>Memories</span><h3>Photo Gallery</h3><p>Moments from events, achievements and everyday school life.</p></div>
+      </a>
+      <a href="disclosure.html" class="explore-card rv">
+        <img src="assets/teacherdepartment2.jpeg" alt="Public Disclosure">
+        <div class="explore-card-body"><span>Transparency</span><h3>Public Disclosure</h3><p>General information, documents, results and SMC details.</p></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- STAFF -->
-<section id="staff" class="section alt">
+<!-- LATEST NOTICES PREVIEW -->
+<section class="section">
   <div class="container">
     <div class="s-head c rv">
-      <span class="s-label">Our Educators</span>
-      <h2 class="s-title">Teaching Staff</h2>
+      <span class="s-label">Stay Updated</span>
+      <h2 class="s-title">Latest Notices</h2>
       <div class="divider c"></div>
-      <p class="s-sub">A dedicated team of qualified and experienced educators committed to nurturing every student's potential.</p>
-    </div>
-    <div class="staff-grid rv">
-      <div class="staff-card"><span class="staff-n">01</span><div class="staff-t">Principal</div></div>
-      <div class="staff-card"><span class="staff-n">26</span><div class="staff-t">Post Graduate Teachers (PGT)</div></div>
-      <div class="staff-card"><span class="staff-n">05</span><div class="staff-t">Trained Graduate Teachers (TGT)</div></div>
-      <div class="staff-card"><span class="staff-n">02</span><div class="staff-t">Vocational Teachers</div></div>
-      <div class="staff-card" style="background:var(--burg);border-color:var(--burg)"><span class="staff-n" style="color:var(--gold-lt)">34</span><div class="staff-t" style="color:rgba(255,255,255,.6)">Total Educators</div></div>
-    </div>
-    <div style="margin-top:56px">
-      <div class="s-head rv"><h3 style="font-size:1.6rem;margin-bottom:16px">Teaching Excellence</h3><div class="divider"></div></div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px" class="rv">
-        <div class="feat-card"><span class="feat-icon">🎓</span><h3>Post Graduate Teachers</h3><p>26 PGTs with post-graduate degrees and specializations in their subjects, teaching Classes XI and XII across all streams.</p></div>
-        <div class="feat-card"><span class="feat-icon">📐</span><h3>Trained Graduate Teachers</h3><p>5 TGTs with graduate degrees and B.Ed qualification, delivering quality education to middle and secondary classes.</p></div>
-        <div class="feat-card"><span class="feat-icon">🛠️</span><h3>Vocational Teachers</h3><p>2 vocational faculty members providing skill-based, industry-relevant training under the vocational education programme.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INFRASTRUCTURE -->
-<section id="infra" class="section">
-  <div class="container">
-    <div class="s-head rv">
-      <span class="s-label">Campus &amp; Facilities</span>
-      <h2 class="s-title">School Infrastructure</h2>
-      <div class="divider"></div>
-      <p class="s-sub">A modern, safe, and well-equipped campus designed to support comprehensive learning and development.</p>
-    </div>
-    <div class="infra-grid">
-      <div class="rv">
-        <table class="infra-tbl">
-          <tr><td>Total Campus Area</td><td>32,554.57 Sq. Mtrs.</td></tr>
-          <tr><td>No. of Classrooms</td><td>20 Rooms (23 Sq. Mtrs. each)</td></tr>
-          <tr><td>No. of Laboratories</td><td>4 Labs (13 Sq. Mtrs. each)</td></tr>
-          <tr><td>Computer Lab</td><td>Yes (Included above)</td></tr>
-          <tr><td>Internet Facility</td><td>Yes — Broadband</td></tr>
-          <tr><td>Girls' Toilets</td><td>07 Units</td></tr>
-          <tr><td>Boys' Toilets</td><td>06 Units + 05 Urinals</td></tr>
-          <tr><td>Library</td><td>Yes — Well Stocked</td></tr>
-          <tr><td>Sports Ground</td><td>Yes — Multi-purpose</td></tr>
-          <tr><td>Drinking Water</td><td>Yes — RO Purified</td></tr>
-        </table>
-        <div style="margin-top:32px">
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-            <div style="text-align:center;background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:16px">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--burg)">20</div>
-              <div style="font-size:.75rem;color:var(--text-m);text-transform:uppercase;letter-spacing:.08em">Classrooms</div>
-            </div>
-            <div style="text-align:center;background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:16px">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--burg)">4</div>
-              <div style="font-size:.75rem;color:var(--text-m);text-transform:uppercase;letter-spacing:.08em">Laboratories</div>
-            </div>
-            <div style="text-align:center;background:var(--white);border:1px solid var(--bd-lt);border-radius:var(--r);padding:16px">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--burg)">1</div>
-              <div style="font-size:.75rem;color:var(--text-m);text-transform:uppercase;letter-spacing:.08em">Library</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="rv">
-        <div class="infra-photos">
-          <img src="assets/schoolgrouppic.jpeg" alt="School Campus" class="infra-photo">
-          <img src="assets/activities1.jpeg" alt="Classrooms" class="infra-photo">
-          <img src="assets/activities3.jpeg" alt="Facilities" class="infra-photo">
-          <img src="assets/teacherdepartment.jpeg" alt="Staff Room" class="infra-photo">
-        </div>
-      </div>
-    </div>
-    <!-- Infra categories -->
-    <div class="infra-sub rv">
-      <h3>Campus at a Glance</h3>
-      <div class="infra-cats">
-        <div class="infra-cat"><img src="assets/schoolgrouppic.jpeg" alt="Campus"><div class="infra-cat-lbl">Campus</div></div>
-        <div class="infra-cat"><img src="assets/activities2.jpeg" alt="Classrooms"><div class="infra-cat-lbl">Classrooms</div></div>
-        <div class="infra-cat"><img src="assets/activities4.jpeg" alt="Laboratories"><div class="infra-cat-lbl">Laboratories</div></div>
-        <div class="infra-cat"><img src="assets/addressingeveryone.jpeg" alt="Conference"><div class="infra-cat-lbl">Assembly Area</div></div>
-        <div class="infra-cat"><img src="assets/activities5.jpeg" alt="Sports"><div class="infra-cat-lbl">Sports</div></div>
-        <div class="infra-cat"><img src="assets/teacherdepartment2.jpeg" alt="Library"><div class="infra-cat-lbl">Library</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STUDENTS -->
-<section id="students" class="section alt">
-  <div class="container">
-    <div class="s-head c rv">
-      <span class="s-label">Student Life</span>
-      <h2 class="s-title">Our Students</h2>
-      <div class="divider c"></div>
-    </div>
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="houses">School Houses</button>
-      <button class="tab-btn" data-tab="clubs">Clubs</button>
-      <button class="tab-btn" data-tab="syllabus">Syllabus</button>
-      <button class="tab-btn" data-tab="enroll">Enrollment</button>
-      <button class="tab-btn" data-tab="slc">SLC Tracking</button>
-    </div>
-
-    <div class="tab-pnl active" id="tab-houses">
-      <div class="houses-grid">
-        <div class="house-card h-pratap rv">
-          <span class="house-icon">⚔️</span>
-          <div class="house-nm">Maharana Pratap</div>
-          <div class="house-sub">Courage &amp; Valour</div>
-        </div>
-        <div class="house-card h-lakshmi rv">
-          <span class="house-icon">🌸</span>
-          <div class="house-nm">Rani Lakshmi Bai</div>
-          <div class="house-sub">Strength &amp; Determination</div>
-        </div>
-        <div class="house-card h-shivaji rv">
-          <span class="house-icon">🛡️</span>
-          <div class="house-nm">Shivaji</div>
-          <div class="house-sub">Leadership &amp; Strategy</div>
-        </div>
-        <div class="house-card h-bhagat rv">
-          <span class="house-icon">✊</span>
-          <div class="house-nm">Bhagat Singh</div>
-          <div class="house-sub">Patriotism &amp; Justice</div>
-        </div>
-      </div>
-      <p style="color:var(--text-m);font-size:.9rem;text-align:center">Each house competes in academic, sports, cultural, and co-curricular activities throughout the year, fostering team spirit, leadership, and healthy competition among students.</p>
-    </div>
-
-    <div class="tab-pnl" id="tab-clubs">
-      <div class="clubs-grid">
-        <div class="club-card rv"><span class="club-icon">🔬</span><div class="club-nm">Science Club</div><p class="club-desc">Scientific experiments, project exhibitions, Olympiad preparation, and science-based awareness drives.</p></div>
-        <div class="club-card rv"><span class="club-icon">📚</span><div class="club-nm">Literary Club</div><p class="club-desc">Debates, creative writing workshops, elocution contests, book discussions, and newsletter publication.</p></div>
-        <div class="club-card rv"><span class="club-icon">⚽</span><div class="club-nm">Sports Club</div><p class="club-desc">Football, kabaddi, athletics, badminton, and indoor games. Coaching for district and state competitions.</p></div>
-        <div class="club-card rv"><span class="club-icon">🌿</span><div class="club-nm">Eco Club</div><p class="club-desc">Plantation drives, cleanliness campaigns, water conservation, and environmental awareness programmes.</p></div>
-        <div class="club-card rv"><span class="club-icon">🎨</span><div class="club-nm">Cultural Club</div><p class="club-desc">Classical and folk dance, music, drama productions, art &amp; craft, and annual cultural festival organisation.</p></div>
-        <div class="club-card rv"><span class="club-icon">💻</span><div class="club-nm">Digital Club</div><p class="club-desc">Coding, digital literacy, cybersecurity awareness, and technology project showcases for future innovators.</p></div>
-      </div>
-    </div>
-
-    <div class="tab-pnl" id="tab-syllabus">
-      <p class="s-sub" style="margin-bottom:24px">Subject-wise syllabus follows Haryana Board of School Education (HBSE) curriculum for all classes.</p>
-      <div class="syllabus-grid">
-        <div class="syl-card"><span class="syl-cls">Classes VI – VIII</span><h4>Middle School</h4><p>Hindi, English, Mathematics, Science, Social Studies, Sanskrit, Art &amp; Craft, PE</p></div>
-        <div class="syl-card"><span class="syl-cls">Classes IX – X</span><h4>Secondary</h4><p>Hindi, English, Mathematics, Science, Social Science, IT (Optional)</p></div>
-        <div class="syl-card"><span class="syl-cls">XI – XII (Science)</span><h4>Science Stream</h4><p>Physics, Chemistry, Biology / Maths, English, Computer Science / PE</p></div>
-        <div class="syl-card"><span class="syl-cls">XI – XII (Arts)</span><h4>Arts Stream</h4><p>History, Political Science, Economics / Geography, English, Hindi, PE</p></div>
-        <div class="syl-card"><span class="syl-cls">XI – XII (Commerce)</span><h4>Commerce Stream</h4><p>Accounts, Business Studies, Economics, English, Mathematics / IP</p></div>
-        <div class="syl-card"><span class="syl-cls">Vocational</span><h4>Vocational Subjects</h4><p>As per HBSE vocational education curriculum — skill-based practical training included</p></div>
-      </div>
-    </div>
-
-    <div class="tab-pnl" id="tab-enroll">
-      <p class="s-sub" style="margin-bottom:24px">Student Enrollment — Session 2025–26</p>
-      <table class="enroll-tbl">
-        <thead><tr><th>Class</th><th>Stream</th><th>Boys</th><th>Girls</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>VI</td><td>—</td><td>68</td><td>72</td><td>140</td></tr>
-          <tr><td>VII</td><td>—</td><td>64</td><td>68</td><td>132</td></tr>
-          <tr><td>VIII</td><td>—</td><td>66</td><td>70</td><td>136</td></tr>
-          <tr><td>IX</td><td>—</td><td>64</td><td>68</td><td>132</td></tr>
-          <tr><td>X</td><td>—</td><td>70</td><td>76</td><td>146</td></tr>
-          <tr><td>XI</td><td>Science</td><td>34</td><td>40</td><td>74</td></tr>
-          <tr><td>XI</td><td>Arts</td><td>46</td><td>52</td><td>98</td></tr>
-          <tr><td>XI</td><td>Commerce</td><td>22</td><td>26</td><td>48</td></tr>
-          <tr><td>XII</td><td>Science</td><td>36</td><td>44</td><td>80</td></tr>
-          <tr><td>XII</td><td>Arts</td><td>50</td><td>56</td><td>106</td></tr>
-          <tr><td>XII</td><td>Commerce</td><td>24</td><td>28</td><td>52</td></tr>
-        </tbody>
-        <tfoot><tr><td colspan="2"><strong>Total Strength</strong></td><td><strong>544</strong></td><td><strong>600</strong></td><td><strong>1,144</strong></td></tr></tfoot>
-      </table>
-    </div>
-
-    <div class="tab-pnl" id="tab-slc">
-      <div class="slc-box">
-        <h3>School Leaving Certificate (SLC) Tracking</h3>
-        <p>The School Leaving Certificate is issued to students who are leaving the school. Parents/Guardians can track the status of their SLC application through the school office. Below is the process for applying for SLC:</p>
-        <ul>
-          <li>Collect the SLC Application Form from the school office or download from the Downloads section.</li>
-          <li>Submit the duly filled form along with fee receipt and any pending dues clearance certificate.</li>
-          <li>SLC is typically issued within 7 working days of application submission.</li>
-          <li>For tracking status, contact the school office at <a href="mailto:gsssbhangrola2013@gmail.com" style="color:var(--gold)">gsssbhangrola2013@gmail.com</a>.</li>
-          <li>Provisional SLC can be issued on request for admission purposes.</li>
-        </ul>
-        <p style="margin-top:16px"><strong style="color:var(--burg)">Note:</strong> All library books and school property must be returned before SLC is issued. Clearance from all departments is mandatory.</p>
-        <div style="margin-top:20px"><a href="assets/AdmissionForm.pdf" class="btn btn-gold" target="_blank">Download SLC Application Form →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" class="section">
-  <div class="container">
-    <div class="s-head c rv">
-      <span class="s-label">Memories &amp; Moments</span>
-      <h2 class="s-title">Photo Gallery</h2>
-      <div class="divider c"></div>
-    </div>
-    <div class="gal-filters rv">
-      <button class="fil-btn active" data-cat="all">All</button>
-      <button class="fil-btn" data-cat="recognition">Recognition &amp; Awards</button>
-      <button class="fil-btn" data-cat="activities">School Activities</button>
-      <button class="fil-btn" data-cat="achievements">Student Achievements</button>
-      <button class="fil-btn" data-cat="teachers">Our Faculty</button>
-      <button class="fil-btn" data-cat="school">School Events</button>
-    </div>
-    <div class="gal-grid" id="gal-grid">
-      <!-- JS renders items -->
-    </div>
-  </div>
-</section>
-
-<!-- NOTICES -->
-<section id="notices" class="section alt">
-  <div class="container">
-    <div class="s-head rv">
-      <span class="s-label">Announcements</span>
-      <h2 class="s-title">Notice Board</h2>
-      <div class="divider"></div>
-      <p class="s-sub">Stay updated with the latest circulars, datesheets, results, holiday notices, and school announcements.</p>
     </div>
     <div class="notices-list rv">
       <div class="notice-item">
-        <div class="n-date"><span class="dy">14</span><span class="mo">Jun 2025</span></div>
+        <div class="n-date"><span class="dy">14</span><span class="mo">Jun</span></div>
         <div class="n-body">
           <span class="tag imp">Exam Notice</span>
           <div class="n-title">Datesheet for Half-Yearly Examinations 2025–26</div>
-          <p class="n-desc">The schedule for half-yearly examinations commencing from 1st July 2025 has been released. All students of classes 6–12 are advised to note the dates.</p>
+          <p class="n-desc">Schedule for half-yearly examinations commencing 1st July 2025 has been released.</p>
         </div>
-        <a href="#" class="n-link">Download ↓</a>
+        <a href="notices.html" class="n-link">View →</a>
       </div>
       <div class="notice-item">
-        <div class="n-date"><span class="dy">10</span><span class="mo">Jun 2025</span></div>
+        <div class="n-date"><span class="dy">10</span><span class="mo">Jun</span></div>
         <div class="n-body">
           <span class="tag new">Result</span>
           <div class="n-title">Class 12 Board Examination Results — Session 2024–25</div>
-          <p class="n-desc">Congratulations to all students! Maximum score of 100% achieved in all three streams — Science, Arts, and Commerce. Results available on HBSE portal.</p>
+          <p class="n-desc">Maximum score of 100% achieved in all three streams — Science, Arts, and Commerce.</p>
         </div>
-        <a href="#" class="n-link">View Result</a>
+        <a href="notices.html" class="n-link">View →</a>
       </div>
       <div class="notice-item">
-        <div class="n-date"><span class="dy">01</span><span class="mo">Apr 2025</span></div>
+        <div class="n-date"><span class="dy">01</span><span class="mo">Apr</span></div>
         <div class="n-body">
           <span class="tag">Admission</span>
           <div class="n-title">Admissions Open for Session 2025–26</div>
-          <p class="n-desc">Admissions are now open for Classes 6 to 12 for the academic session 2025–26. Visit school office or download the admission form below.</p>
+          <p class="n-desc">Admissions now open for Classes 6 to 12 for the academic session 2025–26.</p>
         </div>
-        <a href="assets/AdmissionForm.pdf" class="n-link" target="_blank">Download ↓</a>
-      </div>
-      <div class="notice-item">
-        <div class="n-date"><span class="dy">25</span><span class="mo">Mar 2025</span></div>
-        <div class="n-body">
-          <span class="tag">Holiday</span>
-          <div class="n-title">Holiday List for Academic Session 2025–26</div>
-          <p class="n-desc">The list of public holidays and vacation schedule for the academic year 2025–26 has been issued as per Haryana Government directives.</p>
-        </div>
-        <a href="#" class="n-link">Download ↓</a>
-      </div>
-      <div class="notice-item">
-        <div class="n-date"><span class="dy">15</span><span class="mo">Mar 2025</span></div>
-        <div class="n-body">
-          <span class="tag">Event</span>
-          <div class="n-title">Annual Sports Day &amp; Prize Distribution Ceremony</div>
-          <p class="n-desc">Annual Sports Day and Prize Distribution Ceremony was successfully held on 15th March 2025. Congratulations to all prize winners and house champions.</p>
-        </div>
-        <a href="#gallery" class="n-link">View Gallery</a>
-      </div>
-      <div class="notice-item">
-        <div class="n-date"><span class="dy">20</span><span class="mo">Dec 2024</span></div>
-        <div class="n-body">
-          <span class="tag">Holiday</span>
-          <div class="n-title">Winter Vacation Notice — 21 Dec 2024 to 1 Jan 2025</div>
-          <p class="n-desc">School will remain closed for winter vacations from 21st December 2024 to 1st January 2025. School reopens on 2nd January 2025.</p>
-        </div>
-        <a href="#" class="n-link">Read Notice</a>
+        <a href="notices.html" class="n-link">View →</a>
       </div>
     </div>
+    <div style="text-align:center;margin-top:36px" class="rv"><a href="notices.html" class="btn btn-out">View All Notices →</a></div>
   </div>
 </section>
 
-<!-- DOWNLOADS -->
-<section id="downloads" class="section">
-  <div class="container">
-    <div class="s-head c rv">
-      <span class="s-label">Forms &amp; Documents</span>
-      <h2 class="s-title">Downloads</h2>
-      <div class="divider c"></div>
-      <p class="s-sub">Download official school forms and documents. All forms are in PDF format.</p>
-    </div>
-    <div class="dl-grid rv">
-      <a href="assets/AdmissionForm.pdf" class="dl-card" target="_blank" download>
-        <div class="dl-icon">📝</div>
-        <div class="dl-info">
-          <div class="dl-title">Admission Form</div>
-          <div class="dl-meta">For new admissions — Session 2025–26</div>
-        </div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="assets/CharacerCertificate.pdf" class="dl-card" target="_blank" download>
-        <div class="dl-icon">🎓</div>
-        <div class="dl-info">
-          <div class="dl-title">Character Certificate</div>
-          <div class="dl-meta">Official character certificate format</div>
-        </div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">💰</div>
-        <div class="dl-info">
-          <div class="dl-title">Fee Structure 2025–26</div>
-          <div class="dl-meta">Approved fee schedule for all classes</div>
-        </div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">📋</div>
-        <div class="dl-info">
-          <div class="dl-title">SLC Application Form</div>
-          <div class="dl-meta">School Leaving Certificate application</div>
-        </div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">🗓️</div>
-        <div class="dl-info">
-          <div class="dl-title">Academic Calendar 2025–26</div>
-          <div class="dl-meta">Full year event and exam calendar</div>
-        </div>
-        <div class="dl-arr">↓</div>
-      </a>
-      <a href="#" class="dl-card">
-        <div class="dl-icon">🏅</div>
-        <div class="dl-info">
-          <div class="dl-title">Scholarship Forms</div>
-          <div class="dl-meta">State &amp; central government scholarship forms</div>
-        </div>
-        <div class="dl-arr">↓</div>
-      </a>
-    </div>
-  </div>
-</section>
+</main>
 
-<!-- EXAM -->
-<section id="exam" class="section alt">
-  <div class="container">
-    <div class="s-head c rv">
-      <span class="s-label">Examinations</span>
-      <h2 class="s-title">Datesheet &amp; Results</h2>
-      <div class="divider c"></div>
-    </div>
-    <div class="exam-grid">
-      <div class="rv">
-        <div class="exam-s-title">Half-Yearly Datesheet 2025–26</div>
-        <table class="ds-tbl">
-          <thead><tr><th>Date</th><th>Day</th><th>Subject</th><th>Class</th></tr></thead>
-          <tbody>
-            <tr><td>01 Jul 2025</td><td>Tue</td><td>English</td><td>6–12</td></tr>
-            <tr><td>03 Jul 2025</td><td>Thu</td><td>Mathematics</td><td>6, 9, 10, 11, 12</td></tr>
-            <tr><td>04 Jul 2025</td><td>Fri</td><td>Physics / History</td><td>11 &amp; 12</td></tr>
-            <tr><td>05 Jul 2025</td><td>Sat</td><td>Hindi</td><td>6–12</td></tr>
-            <tr><td>07 Jul 2025</td><td>Mon</td><td>Science</td><td>6, 7, 8, 9, 10</td></tr>
-            <tr><td>08 Jul 2025</td><td>Tue</td><td>Chemistry / Economics</td><td>11 &amp; 12</td></tr>
-            <tr><td>09 Jul 2025</td><td>Wed</td><td>Social Science</td><td>6, 7, 8, 9, 10</td></tr>
-            <tr><td>10 Jul 2025</td><td>Thu</td><td>Biology / Accounts</td><td>11 &amp; 12</td></tr>
-            <tr><td>11 Jul 2025</td><td>Fri</td><td>Political Sci / Biz Studies</td><td>11 &amp; 12</td></tr>
-            <tr><td>12 Jul 2025</td><td>Sat</td><td>Sanskrit / Computer Sci</td><td>As applicable</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:16px"><a href="#downloads" class="btn btn-out" style="font-size:11px;padding:9px 20px">Download Full Datesheet ↓</a></div>
-      </div>
-      <div class="rv">
-        <div class="exam-s-title">Board Exam Results</div>
-        <div class="res-grid" style="grid-template-columns:repeat(2,1fr)">
-          <div class="res-card">
-            <span class="res-cls">Class 10 — 2024–25</span>
-            <div class="res-stream">Secondary</div>
-            <div class="res-score">100<sup>%</sup></div>
-            <div class="res-lbl">Maximum Score</div>
-          </div>
-          <div class="res-card">
-            <span class="res-cls">Class 12 — 2024–25</span>
-            <div class="res-stream">Science</div>
-            <div class="res-score">100<sup>%</sup></div>
-            <div class="res-lbl">Maximum Score</div>
-          </div>
-          <div class="res-card">
-            <span class="res-cls">Class 12 — 2024–25</span>
-            <div class="res-stream">Arts</div>
-            <div class="res-score">100<sup>%</sup></div>
-            <div class="res-lbl">Maximum Score</div>
-          </div>
-          <div class="res-card">
-            <span class="res-cls">Class 12 — 2024–25</span>
-            <div class="res-stream">Commerce</div>
-            <div class="res-score">100<sup>%</sup></div>
-            <div class="res-lbl">Maximum Score</div>
-          </div>
-        </div>
-        <div style="margin-top:20px;background:var(--gold-pale);border-left:4px solid var(--gold);padding:16px 18px;border-radius:var(--r)">
-          <p style="font-size:.86rem;color:var(--text-mid);line-height:1.65">Results for internal school examinations are displayed on the school notice board and communicated to parents via written reports. HBSE Board results are available on <strong><a href="#" style="color:var(--burg);text-decoration:none">bseh.org.in</a></strong>.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container">
-    <div class="s-head rv">
-      <span class="s-label">Get in Touch</span>
-      <h2 class="s-title">Contact Us</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="contact-grid">
-      <div class="rv">
-        <div class="c-item">
-          <div class="c-icon">📍</div>
-          <div>
-            <span class="c-lbl">Address</span>
-            <div class="c-val">PM SHRI Govt. Sr. Sec. School, Bhangrola<br>P.O. Bhangrola, Block Farrukhnagar<br>District Gurugram, Haryana</div>
-          </div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon">✉️</div>
-          <div>
-            <span class="c-lbl">Email</span>
-            <div class="c-val"><a href="mailto:gsssbhangrola2013@gmail.com">gsssbhangrola2013@gmail.com</a></div>
-          </div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon">📞</div>
-          <div>
-            <span class="c-lbl">Phone</span>
-            <div class="c-val">xxxxxxxxxx</div>
-          </div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon">🕐</div>
-          <div>
-            <span class="c-lbl">Office Hours</span>
-            <div class="c-val">Monday – Saturday<br>8:00 AM – 3:00 PM</div>
-          </div>
-        </div>
-        <div>
-          <span class="c-lbl">Follow Us</span>
-          <div class="socials">
-            <a href="#" class="soc-lnk" aria-label="Facebook" title="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="#" class="soc-lnk" aria-label="Instagram" title="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <a href="#" class="soc-lnk" aria-label="YouTube" title="YouTube">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-            </a>
-            <a href="#" class="soc-lnk" aria-label="X / Twitter" title="X / Twitter">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="rv">
-        <div class="map-wrap">
-          <iframe
-            src="https://maps.google.com/maps?q=28.394840,76.906029&z=16&output=embed"
-            title="PM SHRI Govt. Sr. Sec. School, Bhangrola Location"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-        <div style="margin-top:16px;display:flex;gap:12px">
-          <a href="https://maps.google.com/maps?q=28.394840,76.906029" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:11px;flex:1;justify-content:center">Open in Google Maps ↗</a>
-          <a href="https://maps.google.com/maps?q=28.394840,76.906029&dirflg=d" target="_blank" rel="noopener" class="btn btn-out" style="font-size:11px;flex:1;justify-content:center">Get Directions →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer id="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="foot-brand">
         <img src="assets/logo.jpg" alt="School Logo">
-        <p>PM SHRI Govt. Sr. Sec. School, Bhangrola — a premier government institution committed to holistic education, academic excellence, and character building for over a decade.</p>
+        <p>PM SHRI Govt. Sr. Sec. School, Bhangrola — a premier government institution committed to holistic education, academic excellence, and character building.</p>
         <div class="udise">UDISE: 06180405403 &nbsp;|&nbsp; Code: 0747</div>
       </div>
       <div class="foot-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#about">About School</a></li>
-          <li><a href="#about">Principal's Message</a></li>
-          <li><a href="#features">Salient Features</a></li>
-          <li><a href="#disclosure">Public Disclosure</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="about.html">About School</a></li>
+          <li><a href="about.html#principal">Principal's Message</a></li>
+          <li><a href="academics.html">Salient Features</a></li>
+          <li><a href="disclosure.html">Public Disclosure</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h4>Academics</h4>
         <ul>
-          <li><a href="#staff">Teaching Staff</a></li>
-          <li><a href="#infra">Infrastructure</a></li>
-          <li><a href="#students">School Houses</a></li>
-          <li><a href="#students">Clubs</a></li>
-          <li><a href="#exam">Datesheet</a></li>
-          <li><a href="#exam">Results</a></li>
+          <li><a href="staff.html">Teaching Staff</a></li>
+          <li><a href="infrastructure.html">Infrastructure</a></li>
+          <li><a href="students.html">School Houses</a></li>
+          <li><a href="students.html#clubs">Clubs</a></li>
+          <li><a href="exam.html">Datesheet</a></li>
+          <li><a href="exam.html#results">Results</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -1220,10 +261,10 @@ a{color:inherit}
         <ul>
           <li><a href="assets/AdmissionForm.pdf" target="_blank">Admission Form</a></li>
           <li><a href="assets/CharacerCertificate.pdf" target="_blank">Character Certificate</a></li>
-          <li><a href="#">Fee Structure</a></li>
-          <li><a href="#">Academic Calendar</a></li>
-          <li><a href="#">SLC Application</a></li>
-          <li><a href="#">Scholarship Forms</a></li>
+          <li><a href="downloads.html">Fee Structure</a></li>
+          <li><a href="downloads.html">Academic Calendar</a></li>
+          <li><a href="downloads.html">SLC Application</a></li>
+          <li><a href="downloads.html">Scholarship Forms</a></li>
         </ul>
       </div>
     </div>
@@ -1234,137 +275,33 @@ a{color:inherit}
   </div>
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lb" id="lightbox" role="dialog" aria-modal="true">
-  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
-  <img id="lb-img" src="" alt="">
-  <div class="lb-cap" id="lb-cap"></div>
-</div>
-
-<!-- SCROLL TOP -->
 <button class="scroll-top" id="scroll-top" aria-label="Back to top">↑</button>
-
+<script src="js/main.js"></script>
 <script>
-// ── Gallery Data ──
-const gallery = [
-  {src:'assets/recognition1.jpg', cat:'recognition', title:'National Recognition Ceremony', date:'2024'},
-  {src:'assets/recognition2.jpg', cat:'recognition', title:'State Excellence Award', date:'2023'},
-  {src:'assets/recognition3.jpg', cat:'recognition', title:'PM SHRI Selection Honour', date:'2023'},
-  {src:'assets/recognition4.jpeg', cat:'recognition', title:'District Best School Award', date:'2024'},
-  {src:'assets/recognition5.jpeg', cat:'recognition', title:'Academic Excellence Award', date:'2024'},
-  {src:'assets/activities1.jpeg', cat:'activities', title:'Annual Science Exhibition', date:'Nov 2024'},
-  {src:'assets/activities2.jpeg', cat:'activities', title:'Cultural Programme', date:'Jan 2025'},
-  {src:'assets/activities3.jpeg', cat:'activities', title:'Sports Day Celebrations', date:'Dec 2024'},
-  {src:'assets/activities4.jpeg', cat:'activities', title:'Skill Development Workshop', date:'Oct 2024'},
-  {src:'assets/activities5.jpeg', cat:'activities', title:'NSS Camp 2024', date:'Sep 2024'},
-  {src:'assets/activities6.jpeg', cat:'activities', title:'Independence Day 2024', date:'Aug 2024'},
-  {src:'assets/kidsachievements1.jpeg', cat:'achievements', title:'Board Toppers Felicitation', date:'2024'},
-  {src:'assets/kidsachievements2.jpeg', cat:'achievements', title:'District Sports Champions', date:'2024'},
-  {src:'assets/kidsachievements3.jpeg', cat:'achievements', title:'Art Exhibition Winners', date:'2024'},
-  {src:'assets/kidsachievements4.jpeg', cat:'achievements', title:'Olympiad Medallists', date:'2024'},
-  {src:'assets/kidsachievements5.jpeg', cat:'achievements', title:'Inter-School Quiz Champions', date:'2024'},
-  {src:'assets/teacherdepartment.jpeg', cat:'teachers', title:'Science Department', date:'2024'},
-  {src:'assets/teacherdepartment2.jpeg', cat:'teachers', title:'Humanities Faculty', date:'2024'},
-  {src:'assets/teacherdepartment3.jpeg', cat:'teachers', title:'Commerce Department', date:'2024'},
-  {src:'assets/teacherrounds.jpeg', cat:'teachers', title:'Academic Rounds', date:'2024'},
-  {src:'assets/schoolgrouppic.jpeg', cat:'school', title:'Annual School Photograph', date:'2025'},
-  {src:'assets/addressingeveryone.jpeg', cat:'school', title:'Principal\'s Address', date:'2024'},
-  {src:'assets/kidscampaign1.jpeg', cat:'school', title:'Student Awareness Campaign', date:'2024'},
-  {src:'assets/plantationdrive.jpeg', cat:'school', title:'Plantation Drive', date:'Jul 2024'},
-];
-
-// Render gallery
-function renderGallery(cat) {
-  const grid = document.getElementById('gal-grid');
-  const items = cat === 'all' ? gallery : gallery.filter(g => g.cat === cat);
-  grid.innerHTML = items.map((g, i) => `
-    <div class="gal-item" data-idx="${i}" data-cat="${g.cat}">
-      <img src="${g.src}" alt="${g.title}" loading="lazy">
-      <div class="gal-ov">
-        <span class="gal-date">${g.date}</span>
-        <div class="gal-cap">${g.title}</div>
-      </div>
-    </div>
-  `).join('');
-  // bind lightbox
-  grid.querySelectorAll('.gal-item').forEach((el, i) => {
-    el.addEventListener('click', () => {
-      const g = items[i];
-      document.getElementById('lb-img').src = g.src;
-      document.getElementById('lb-img').alt = g.title;
-      document.getElementById('lb-cap').textContent = g.title + (g.date ? ' — ' + g.date : '');
-      document.getElementById('lightbox').classList.add('open');
-    });
+(function(){
+  const track = document.getElementById('car-track');
+  const slides = track.children;
+  let idx = 0;
+  const dotsWrap = document.getElementById('car-dots');
+  [...slides].forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Go to slide '+(i+1));
+    d.addEventListener('click',()=>goTo(i));
+    dotsWrap.appendChild(d);
   });
-}
-renderGallery('all');
-
-// Gallery filter
-document.querySelectorAll('.fil-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.fil-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderGallery(btn.dataset.cat);
-  });
-});
-
-// Lightbox close
-document.getElementById('lb-close').addEventListener('click', () => document.getElementById('lightbox').classList.remove('open'));
-document.getElementById('lightbox').addEventListener('click', (e) => { if(e.target === e.currentTarget) e.currentTarget.classList.remove('open'); });
-document.addEventListener('keydown', (e) => { if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
-
-// Tab switching — generic
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const parent = btn.closest('.container') || btn.closest('section');
-    const tabKey = btn.dataset.tab;
-    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    parent.querySelectorAll('.tab-pnl').forEach(p => {
-      p.classList.toggle('active', p.id === 'tab-' + tabKey);
-    });
-  });
-});
-
-// Mobile nav
-const hbg = document.getElementById('hbg');
-const mobNav = document.getElementById('mob-nav');
-hbg.addEventListener('click', () => {
-  hbg.classList.toggle('open');
-  mobNav.classList.toggle('open');
-  document.body.style.overflow = mobNav.classList.contains('open') ? 'hidden' : '';
-});
-mobNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hbg.classList.remove('open');
-    mobNav.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-// Scroll top
-const stBtn = document.getElementById('scroll-top');
-window.addEventListener('scroll', () => {
-  stBtn.classList.toggle('show', window.scrollY > 400);
-}, {passive:true});
-stBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-
-// Reveal on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
-}, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv').forEach(el => observer.observe(el));
-
-// Active nav on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links > li > a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) cur = s.id; });
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
-  });
-}, {passive:true});
+  function update(){
+    track.style.transform = `translateX(-${idx*100}%)`;
+    [...dotsWrap.children].forEach((d,i)=>d.classList.toggle('active', i===idx));
+  }
+  function goTo(i){ idx=(i+slides.length)%slides.length; update(); }
+  document.getElementById('car-prev').addEventListener('click',()=>goTo(idx-1));
+  document.getElementById('car-next').addEventListener('click',()=>goTo(idx+1));
+  let timer = setInterval(()=>goTo(idx+1), 4500);
+  const carousel = document.getElementById('carousel');
+  carousel.addEventListener('mouseenter',()=>clearInterval(timer));
+  carousel.addEventListener('mouseleave',()=>{timer=setInterval(()=>goTo(idx+1),4500);});
+})();
 </script>
 </body>
 </html>
