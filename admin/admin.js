@@ -33,9 +33,17 @@ const SCHEMAS = {
       { name: 'fileUrl', label: 'File', type: 'file', default: '#' },
     ],
   },
+  calendar: {
+    itemLabel: c => c.month || 'New entry',
+    itemMeta: c => (c.items || '').split('\n').filter(Boolean).length + ' events',
+    fields: [
+      { name: 'month', label: 'Month / Period (e.g. April 2025)', type: 'text', default: '' },
+      { name: 'items', label: 'Events (one per line)', type: 'textarea', default: '' },
+    ],
+  },
 };
 
-const state = { notices: [], gallery: [], downloads: [] };
+const state = { notices: [], gallery: [], downloads: [], calendar: [] };
 let currentTab = 'notices';
 let editingIndex = null; // null = no editor open, -1 = adding new
 

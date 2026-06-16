@@ -1,7 +1,7 @@
 const { requireAuth } = require('./_auth');
 const { getFile, putFile } = require('./_github');
 
-const ALLOWED_TYPES = ['notices', 'gallery', 'downloads'];
+const ALLOWED_TYPES = ['notices', 'gallery', 'downloads', 'calendar'];
 
 exports.handler = async (event) => {
   const auth = requireAuth(event);
