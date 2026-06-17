@@ -67,6 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Populate ticker from data/ticker.json on every page
+(function() {
+  const track = document.querySelector('.ticker-track');
+  if (!track) return;
+  fetch('data/ticker.json').then(r => r.json()).then(data => {
+    const html = (data.ticker || []).map(t =>
+      `<span class="ticker-item">${t.text}${t.link ? ` — <a href="${t.link}">${t.linkText || 'More'}</a>` : ''}</span>`
+    ).join('');
+    track.innerHTML = html + html;
+  }).catch(() => {});
+})();
+
 // Fetches data/notices.json and renders notice-item markup into the given container.
 async function loadNotices(containerId, { limit = null, showYear = false } = {}) {
   const el = document.getElementById(containerId);

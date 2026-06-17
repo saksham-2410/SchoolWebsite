@@ -41,6 +41,15 @@ const SCHEMAS = {
       { name: 'items', label: 'Events (one per line)', type: 'textarea', default: '' },
     ],
   },
+  ticker: {
+    itemLabel: t => t.text || 'New item',
+    itemMeta: t => t.link ? t.link : 'No link',
+    fields: [
+      { name: 'text', label: 'Ticker Text (include emoji if desired)', type: 'text', default: '' },
+      { name: 'link', label: 'Link URL (leave blank for no link)', type: 'text', default: '' },
+      { name: 'linkText', label: 'Link Button Text (e.g. Download, Apply Now)', type: 'text', default: '' },
+    ],
+  },
   carousel: {
     itemLabel: c => c.title || 'New slide',
     itemMeta: c => c.date || '',
@@ -96,7 +105,7 @@ const SCHEMAS = {
   },
 };
 
-const state = { notices: [], gallery: [], downloads: [], calendar: [], carousel: [], enrollment: [], discdocs: [], results: [], smc: [] };
+const state = { notices: [], gallery: [], downloads: [], calendar: [], carousel: [], enrollment: [], discdocs: [], results: [], smc: [], ticker: [] };
 let currentTab = 'notices';
 let editingIndex = null; // null = no editor open, -1 = adding new
 
