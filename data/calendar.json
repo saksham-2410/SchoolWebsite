@@ -1,12 +1,40 @@
 {
   "calendar": [
-    { "month": "April 2025", "items": "Session Commencement\nAdmission Process Begins\nParent-Teacher Meeting" },
-    { "month": "May 2025", "items": "Summer Vacations\nStaff Development Programme" },
-    { "month": "July 2025", "items": "Plantation Drive\nHalf-Yearly Exam Begins" },
-    { "month": "August 2025", "items": "Independence Day Celebration\nScience Exhibition" },
-    { "month": "October 2025", "items": "Half-Yearly Results\nAnnual Sports Week\nDiwali Break" },
-    { "month": "November 2025", "items": "Annual Cultural Fest\nCareer Counseling Session" },
-    { "month": "December 2025", "items": "Winter Vacations\nPre-Board Preparation" },
-    { "month": "Jan–Mar 2026", "items": "Pre-Board Examinations\nAnnual Board Exams\nAnnual Prize Distribution" }
+    {
+      "month": "April 2025",
+      "items": "Session Commencement\nAdmission Process Begins\nParent-Teacher Meeting"
+    },
+    {
+      "month": "May 2025",
+      "items": "Summer Vacations\nStaff Development Programme"
+    },
+    {
+      "month": "July 2025",
+      "items": "Plantation Drive\nHalf-Yearly Exam Begins"
+    },
+    {
+      "month": "August 2025",
+      "items": "Independence Day Celebration\nScience Exhibition"
+    },
+    {
+      "month": "October 2025",
+      "items": "Half-Yearly Results\nAnnual Sports Week\nDiwali Break"
+    },
+    {
+      "month": "November 2025",
+      "items": "Annual Cultural Fest\nCareer Counseling Session"
+    },
+    {
+      "month": "December 2025",
+      "items": "Winter Vacations\nPre-Board Preparation"
+    },
+    {
+      "month": "Jan–Mar 2026",
+      "items": "Pre-Board Examinations\nAnnual Board Exams\nAnnual Prize Distribution"
+    },
+    {
+      "month": "July 2026",
+      "items": "Half yearly Examination\nSolo Song Competition"
+    }
   ]
 }
