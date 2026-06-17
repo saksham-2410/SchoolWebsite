@@ -1,0 +1,12 @@
+{
+  "discdocs": [
+    {"icon": "📄", "title": "NOC by State Government", "desc": "No Objection Certificate issued by Government of Haryana for operation of school", "url": "#"},
+    {"icon": "🏗️", "title": "Building Safety Certificate", "desc": "Certificate as per National Building Code ensuring structural safety of the school premises", "url": "#"},
+    {"icon": "🌾", "title": "Land Certificate", "desc": "Official land ownership/allotment certificate for school campus", "url": "#"},
+    {"icon": "💰", "title": "Fee Structure", "desc": "Approved fee schedule for all classes and streams for current academic session", "url": "downloads.html"},
+    {"icon": "🔥", "title": "Fire Safety Certificate", "desc": "Fire safety compliance certificate for all school buildings", "url": "#"},
+    {"icon": "📋", "title": "Self Certification", "desc": "Mandatory self-disclosure by the school as per board guidelines", "url": "#"},
+    {"icon": "🩺", "title": "Health and Sanitary Certificate", "desc": "Certificate confirming health and sanitation standards of the school premises", "url": "#"},
+    {"icon": "💧", "title": "Safe Drinking Water Certificate", "desc": "Certificate confirming safe and potable drinking water facilities on campus", "url": "#"}
+  ]
+}

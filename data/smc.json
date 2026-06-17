@@ -1,0 +1,27 @@
+{
+  "smc": [
+    {"type": "config", "session": "2025–26"},
+    {"type": "member", "name": "Smt. Bhawna Wadhwa", "role": "Organiser"},
+    {"type": "member", "name": "Smt. Sonam Yadav", "role": "ABRC"},
+    {"type": "member", "name": "Smt. Kavita", "role": "President"},
+    {"type": "member", "name": "Sh. Malkhan Singh", "role": "Vice President"},
+    {"type": "member", "name": "Sh. Bal Kishan", "role": "Councillor"},
+    {"type": "member", "name": "Sh. Ravinder Sharma", "role": "SMC I/C"},
+    {"type": "member", "name": "Smt. Sucheta Yadav", "role": "Teacher's Representative"},
+    {"type": "member", "name": "Sh. Jai Prakash", "role": "Social Worker"},
+    {"type": "member", "name": "Smt. Mamta", "role": "Member"},
+    {"type": "member", "name": "Smt. Ritu", "role": "Member"},
+    {"type": "member", "name": "Smt. Phoolan Devi", "role": "Member"},
+    {"type": "member", "name": "Smt. Anju", "role": "Member"},
+    {"type": "member", "name": "Smt. Bhawna", "role": "Member"},
+    {"type": "member", "name": "Smt. Bindu Devi", "role": "Member"},
+    {"type": "member", "name": "Smt. Uma Rani", "role": "Member"},
+    {"type": "member", "name": "Smt. Vandna", "role": "Member"},
+    {"type": "member", "name": "Smt. Asha", "role": "Member"},
+    {"type": "member", "name": "Smt. Savitri", "role": "Member"},
+    {"type": "member", "name": "Smt. Rekha Devi", "role": "Member"},
+    {"type": "member", "name": "Sh. Dinesh Tiwari", "role": "Member"},
+    {"type": "member", "name": "Sh. Randhir", "role": "Member"},
+    {"type": "member", "name": "Smt. Mamta Devi", "role": "Member"}
+  ]
+}

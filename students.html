@@ -119,23 +119,11 @@
     </div>
 
     <div class="tab-pnl" id="tab-enroll">
-      <p class="s-sub" style="margin-bottom:24px">Student Enrollment — Session 2025–26</p>
+      <p class="s-sub" id="enroll-session" style="margin-bottom:24px">Student Enrollment</p>
       <table class="enroll-tbl">
         <thead><tr><th>Class</th><th>Stream</th><th>Boys</th><th>Girls</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>VI</td><td>—</td><td>68</td><td>72</td><td>140</td></tr>
-          <tr><td>VII</td><td>—</td><td>64</td><td>68</td><td>132</td></tr>
-          <tr><td>VIII</td><td>—</td><td>66</td><td>70</td><td>136</td></tr>
-          <tr><td>IX</td><td>—</td><td>64</td><td>68</td><td>132</td></tr>
-          <tr><td>X</td><td>—</td><td>70</td><td>76</td><td>146</td></tr>
-          <tr><td>XI</td><td>Science</td><td>34</td><td>40</td><td>74</td></tr>
-          <tr><td>XI</td><td>Arts</td><td>46</td><td>52</td><td>98</td></tr>
-          <tr><td>XI</td><td>Commerce</td><td>22</td><td>26</td><td>48</td></tr>
-          <tr><td>XII</td><td>Science</td><td>36</td><td>44</td><td>80</td></tr>
-          <tr><td>XII</td><td>Arts</td><td>50</td><td>56</td><td>106</td></tr>
-          <tr><td>XII</td><td>Commerce</td><td>24</td><td>28</td><td>52</td></tr>
-        </tbody>
-        <tfoot><tr><td colspan="2"><strong>Total Strength</strong></td><td><strong>544</strong></td><td><strong>600</strong></td><td><strong>1,144</strong></td></tr></tfoot>
+        <tbody id="enroll-tbody"></tbody>
+        <tfoot><tr><td colspan="2"><strong>Total Strength</strong></td><td id="enroll-total-boys"></td><td id="enroll-total-girls"></td><td id="enroll-total"></td></tr></tfoot>
       </table>
     </div>
 
@@ -151,7 +139,6 @@
           <li>Provisional SLC can be issued on request for admission purposes.</li>
         </ul>
         <p style="margin-top:16px"><strong style="color:var(--burg)">Note:</strong> All library books and school property must be returned before SLC is issued. Clearance from all departments is mandatory.</p>
-        <div style="margin-top:20px"><a href="downloads.html" class="btn btn-gold">Download SLC Application Form →</a></div>
       </div>
     </div>
   </div>
@@ -170,5 +157,21 @@
 
 <button class="scroll-top" id="scroll-top" aria-label="Back to top">↑</button>
 <script src="js/main.js"></script>
+<script>
+fetch('data/enrollment.json').then(r=>r.json()).then(data=>{
+  const config = data.enrollment.find(e=>e.type==='config');
+  const rows = data.enrollment.filter(e=>e.type==='row');
+  if (config) document.getElementById('enroll-session').textContent = `Student Enrollment — Session ${config.session}`;
+  let tb=0, tg=0;
+  document.getElementById('enroll-tbody').innerHTML = rows.map(r=>{
+    const b=parseInt(r.boys)||0, g=parseInt(r.girls)||0;
+    tb+=b; tg+=g;
+    return `<tr><td>${r.class}</td><td>${r.stream}</td><td>${b}</td><td>${g}</td><td>${b+g}</td></tr>`;
+  }).join('');
+  document.getElementById('enroll-total-boys').innerHTML=`<strong>${tb}</strong>`;
+  document.getElementById('enroll-total-girls').innerHTML=`<strong>${tg}</strong>`;
+  document.getElementById('enroll-total').innerHTML=`<strong>${(tb+tg).toLocaleString()}</strong>`;
+});
+</script>
 </body>
 </html>

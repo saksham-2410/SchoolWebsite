@@ -1,0 +1,16 @@
+{
+  "enrollment": [
+    {"type": "config", "session": "2025–26"},
+    {"type": "row", "class": "VI", "stream": "—", "boys": "68", "girls": "72"},
+    {"type": "row", "class": "VII", "stream": "—", "boys": "64", "girls": "68"},
+    {"type": "row", "class": "VIII", "stream": "—", "boys": "66", "girls": "70"},
+    {"type": "row", "class": "IX", "stream": "—", "boys": "64", "girls": "68"},
+    {"type": "row", "class": "X", "stream": "—", "boys": "70", "girls": "76"},
+    {"type": "row", "class": "XI", "stream": "Science", "boys": "34", "girls": "40"},
+    {"type": "row", "class": "XI", "stream": "Arts", "boys": "46", "girls": "52"},
+    {"type": "row", "class": "XI", "stream": "Commerce", "boys": "22", "girls": "26"},
+    {"type": "row", "class": "XII", "stream": "Science", "boys": "36", "girls": "44"},
+    {"type": "row", "class": "XII", "stream": "Arts", "boys": "50", "girls": "56"},
+    {"type": "row", "class": "XII", "stream": "Commerce", "boys": "24", "girls": "28"}
+  ]
+}

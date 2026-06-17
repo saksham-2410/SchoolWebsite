@@ -41,9 +41,62 @@ const SCHEMAS = {
       { name: 'items', label: 'Events (one per line)', type: 'textarea', default: '' },
     ],
   },
+  carousel: {
+    itemLabel: c => c.title || 'New slide',
+    itemMeta: c => c.date || '',
+    thumb: c => c.src,
+    fields: [
+      { name: 'src', label: 'Photo', type: 'image', default: '' },
+      { name: 'alt', label: 'Alt Text', type: 'text', default: '' },
+      { name: 'date', label: 'Caption Label (small text)', type: 'text', default: '' },
+      { name: 'title', label: 'Caption Title', type: 'text', default: '' },
+    ],
+  },
+  enrollment: {
+    itemLabel: e => e.type === 'config' ? `Session: ${e.session}` : `Class ${e.class}${e.stream && e.stream !== '—' ? ' (' + e.stream + ')' : ''}`,
+    itemMeta: e => e.type === 'row' ? `Boys: ${e.boys}  Girls: ${e.girls}` : 'Session config',
+    fields: [
+      { name: 'type', label: 'Row Type', type: 'select', options: [['row', 'Class Row'], ['config', 'Session Config']], default: 'row' },
+      { name: 'session', label: 'Session (only for Session Config row)', type: 'text', default: '' },
+      { name: 'class', label: 'Class (e.g. VI, XI)', type: 'text', default: '' },
+      { name: 'stream', label: 'Stream (use — if none)', type: 'text', default: '—' },
+      { name: 'boys', label: 'No. of Boys', type: 'text', default: '0' },
+      { name: 'girls', label: 'No. of Girls', type: 'text', default: '0' },
+    ],
+  },
+  discdocs: {
+    itemLabel: d => d.title || 'New document',
+    itemMeta: d => d.url && d.url !== '#' ? d.url : 'No file uploaded',
+    fields: [
+      { name: 'icon', label: 'Icon (emoji)', type: 'text', default: '📄' },
+      { name: 'title', label: 'Document Title', type: 'text', default: '' },
+      { name: 'desc', label: 'Description', type: 'text', default: '' },
+      { name: 'url', label: 'Upload File (PDF/Image)', type: 'file', default: '#' },
+    ],
+  },
+  results: {
+    itemLabel: r => r.class || 'New result',
+    itemMeta: r => r.session || '',
+    fields: [
+      { name: 'class', label: 'Class (e.g. Class 10)', type: 'text', default: '' },
+      { name: 'session', label: 'Session (e.g. Session 2025–26)', type: 'text', default: '' },
+      { name: 'score', label: 'Score / Percentage (without % sign)', type: 'text', default: '' },
+      { name: 'label', label: 'Label (e.g. Pass Percentage)', type: 'text', default: 'Pass Percentage' },
+    ],
+  },
+  smc: {
+    itemLabel: s => s.type === 'config' ? `Session: ${s.session}` : (s.name || 'New member'),
+    itemMeta: s => s.type === 'config' ? 'SMC Session Config' : (s.role || ''),
+    fields: [
+      { name: 'type', label: 'Type', type: 'select', options: [['member', 'Member'], ['config', 'Session Config']], default: 'member' },
+      { name: 'session', label: 'Session (only for Session Config row)', type: 'text', default: '' },
+      { name: 'name', label: 'Name', type: 'text', default: '' },
+      { name: 'role', label: 'Role / Designation', type: 'text', default: 'Member' },
+    ],
+  },
 };
 
-const state = { notices: [], gallery: [], downloads: [], calendar: [] };
+const state = { notices: [], gallery: [], downloads: [], calendar: [], carousel: [], enrollment: [], discdocs: [], results: [], smc: [] };
 let currentTab = 'notices';
 let editingIndex = null; // null = no editor open, -1 = adding new
 

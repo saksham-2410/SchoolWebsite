@@ -118,14 +118,7 @@
   </div>
 
   <div class="carousel" id="carousel">
-    <div class="carousel-track" id="car-track">
-      <div class="carousel-slide"><img src="assets/schoolgrouppic.jpeg" alt="School Family"><div class="carousel-cap"><span class="cc-date">School Family</span><span class="cc-title">1,084+ Students, One Proud School</span></div></div>
-      <div class="carousel-slide"><img src="assets/recognition1.jpg" alt="Recognition"><div class="carousel-cap"><span class="cc-date">Recognition</span><span class="cc-title">Celebrating National &amp; State Honours</span></div></div>
-      <div class="carousel-slide"><img src="assets/activities2.jpeg" alt="Cultural Programme"><div class="carousel-cap"><span class="cc-date">Activities</span><span class="cc-title">Vibrant Cultural &amp; Co-curricular Life</span></div></div>
-      <div class="carousel-slide"><img src="assets/kidsachievements1.jpeg" alt="Student Achievements"><div class="carousel-cap"><span class="cc-date">Achievements</span><span class="cc-title">Our Students, Our Pride</span></div></div>
-      <div class="carousel-slide"><img src="assets/recognition3.jpg" alt="PM SHRI Recognition"><div class="carousel-cap"><span class="cc-date">PM SHRI</span><span class="cc-title">Selected Under the PM SHRI Scheme</span></div></div>
-      <div class="carousel-slide"><img src="assets/activities6.jpeg" alt="Independence Day"><div class="carousel-cap"><span class="cc-date">Celebrations</span><span class="cc-title">Independence Day at PM SHRI Bhangrola</span></div></div>
-    </div>
+    <div class="carousel-track" id="car-track"></div>
     <button class="carousel-arrow prev" id="car-prev" aria-label="Previous slide">‹</button>
     <button class="carousel-arrow next" id="car-next" aria-label="Next slide">›</button>
     <div class="carousel-dots" id="car-dots"></div>
@@ -251,28 +244,32 @@
 <script src="js/main.js"></script>
 <script>
 (function(){
-  const track = document.getElementById('car-track');
-  const slides = track.children;
-  let idx = 0;
-  const dotsWrap = document.getElementById('car-dots');
-  [...slides].forEach((_,i)=>{
-    const d = document.createElement('button');
-    d.className = 'carousel-dot' + (i===0?' active':'');
-    d.setAttribute('aria-label','Go to slide '+(i+1));
-    d.addEventListener('click',()=>goTo(i));
-    dotsWrap.appendChild(d);
+  fetch('data/carousel.json').then(r=>r.json()).then(data=>{
+    const track = document.getElementById('car-track');
+    const dotsWrap = document.getElementById('car-dots');
+    track.innerHTML = data.carousel.map(s=>`
+      <div class="carousel-slide"><img src="${s.src}" alt="${s.alt}"><div class="carousel-cap"><span class="cc-date">${s.date}</span><span class="cc-title">${s.title}</span></div></div>`).join('');
+    const slides = track.children;
+    let idx = 0;
+    [...slides].forEach((_,i)=>{
+      const d = document.createElement('button');
+      d.className = 'carousel-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Go to slide '+(i+1));
+      d.addEventListener('click',()=>goTo(i));
+      dotsWrap.appendChild(d);
+    });
+    function update(){
+      track.style.transform=`translateX(-${idx*100}%)`;
+      [...dotsWrap.children].forEach((d,i)=>d.classList.toggle('active',i===idx));
+    }
+    function goTo(i){ idx=(i+slides.length)%slides.length; update(); }
+    document.getElementById('car-prev').addEventListener('click',()=>goTo(idx-1));
+    document.getElementById('car-next').addEventListener('click',()=>goTo(idx+1));
+    let timer=setInterval(()=>goTo(idx+1),4500);
+    const carousel=document.getElementById('carousel');
+    carousel.addEventListener('mouseenter',()=>clearInterval(timer));
+    carousel.addEventListener('mouseleave',()=>{timer=setInterval(()=>goTo(idx+1),4500);});
   });
-  function update(){
-    track.style.transform = `translateX(-${idx*100}%)`;
-    [...dotsWrap.children].forEach((d,i)=>d.classList.toggle('active', i===idx));
-  }
-  function goTo(i){ idx=(i+slides.length)%slides.length; update(); }
-  document.getElementById('car-prev').addEventListener('click',()=>goTo(idx-1));
-  document.getElementById('car-next').addEventListener('click',()=>goTo(idx+1));
-  let timer = setInterval(()=>goTo(idx+1), 4500);
-  const carousel = document.getElementById('carousel');
-  carousel.addEventListener('mouseenter',()=>clearInterval(timer));
-  carousel.addEventListener('mouseleave',()=>{timer=setInterval(()=>goTo(idx+1),4500);});
 })();
 </script>
 </body>
