@@ -257,7 +257,7 @@
     const track = document.getElementById('car-track');
     const dotsWrap = document.getElementById('car-dots');
     track.innerHTML = data.carousel.map(s=>`
-      <div class="carousel-slide"><img src="${s.src}" alt="${s.alt}"><div class="carousel-cap"><span class="cc-date">${s.date}</span><span class="cc-title">${s.title}</span></div></div>`).join('');
+      <div class="carousel-slide"><img src="${s.src}" alt="${s.alt}">${s.date||s.title?`<div class="carousel-cap"><span class="cc-date">${s.date}</span><span class="cc-title">${s.title}</span></div>`:''}</div>`).join('');
     const slides = track.children;
     let idx = 0;
     [...slides].forEach((_,i)=>{

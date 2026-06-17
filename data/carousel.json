@@ -2,10 +2,10 @@
   "carousel": [
     {"src": "assets/schooldevelopmentplan.jpeg", "alt": "School Development Plan", "date": "Development", "title": "PM SHRI School Development Plan 2026–27"},
     {"src": "assets/schoolgrouppic.jpeg", "alt": "School Family", "date": "School Family", "title": "1,084+ Students, One Proud School"},
-    {"src": "assets/recognition1.jpg", "alt": "Recognition", "date": "Recognition", "title": "Celebrating National & State Honours"},
-    {"src": "assets/activities2.jpeg", "alt": "Cultural Programme", "date": "Activities", "title": "Vibrant Cultural & Co-curricular Life"},
-    {"src": "assets/kidsachievements1.jpeg", "alt": "Student Achievements", "date": "Achievements", "title": "Our Students, Our Pride"},
-    {"src": "assets/recognition3.jpg", "alt": "PM SHRI Recognition", "date": "PM SHRI", "title": "Selected Under the PM SHRI Scheme"},
-    {"src": "assets/activities6.jpeg", "alt": "Independence Day", "date": "Celebrations", "title": "Independence Day at PM SHRI Bhangrola"}
+    {"src": "assets/recognition1.jpg", "alt": "Recognition", "date": "", "title": ""},
+    {"src": "assets/activities2.jpeg", "alt": "Cultural Programme", "date": "", "title": ""},
+    {"src": "assets/kidsachievements1.jpeg", "alt": "Student Achievements", "date": "", "title": ""},
+    {"src": "assets/recognition3.jpg", "alt": "PM SHRI Recognition", "date": "", "title": ""},
+    {"src": "assets/activities6.jpeg", "alt": "Independence Day", "date": "", "title": ""}
   ]
 }
