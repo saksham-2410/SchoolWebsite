@@ -1,11 +1,12 @@
 {
   "carousel": [
-    {"src": "assets/schooldevelopmentplan.jpeg", "alt": "School Development Plan", "date": "Development", "title": "PM SHRI School Development Plan 2026–27"},
-    {"src": "assets/schoolgrouppic.jpeg", "alt": "School Family", "date": "School Family", "title": "1,084+ Students, One Proud School"},
-    {"src": "assets/recognition1.jpg", "alt": "Recognition", "date": "", "title": ""},
-    {"src": "assets/activities2.jpeg", "alt": "Cultural Programme", "date": "", "title": ""},
-    {"src": "assets/kidsachievements1.jpeg", "alt": "Student Achievements", "date": "", "title": ""},
-    {"src": "assets/recognition3.jpg", "alt": "PM SHRI Recognition", "date": "", "title": ""},
-    {"src": "assets/activities6.jpeg", "alt": "Independence Day", "date": "", "title": ""}
+    {"src": "assets/homepageimagecarousel/1.jpg", "alt": "PM SHRI School Development Plan 2026-27", "date": "", "title": ""},
+    {"src": "assets/homepageimagecarousel/2.jpg", "alt": "Our Achievers", "date": "", "title": ""},
+    {"src": "assets/homepageimagecarousel/3.jpg", "alt": "School Activities", "date": "", "title": ""},
+    {"src": "assets/homepageimagecarousel/4.jpg", "alt": "School Activities", "date": "", "title": ""},
+    {"src": "assets/homepageimagecarousel/5.jpg", "alt": "School Activities", "date": "", "title": ""},
+    {"src": "assets/homepageimagecarousel/6.jpg", "alt": "School Celebration", "date": "", "title": ""},
+    {"src": "assets/homepageimagecarousel/7.jpg", "alt": "School Event", "date": "", "title": ""},
+    {"src": "assets/homepageimagecarousel/8.jpg", "alt": "School Campus", "date": "", "title": ""}
   ]
 }
