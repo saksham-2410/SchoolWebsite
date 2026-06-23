@@ -1,29 +1,29 @@
 {
   "notices": [
     {
-      "date": "2025-06-14",
+      "date": "2026-09-14",
       "tag": "Exam Notice",
       "tagClass": "imp",
-      "title": "Datesheet for Half-Yearly Examinations 2025–26",
-      "desc": "The schedule for half-yearly examinations commencing from 1st July 2025 has been released. All students of classes 6–12 are advised to note the dates.",
-      "linkText": "View Datesheet →",
+      "title": "Datesheet for Half-Yearly Examinations 2026–27",
+      "desc": "",
+      "linkText": "",
       "linkUrl": "downloads.html"
     },
     {
-      "date": "2025-06-10",
+      "date": "2026-05-13",
       "tag": "Result",
       "tagClass": "new",
-      "title": "Class 12 Board Examination Results — Session 2024–25",
-      "desc": "Congratulations to all students! Maximum score of 100% achieved in all three streams — Science, Arts, and Commerce. Results available on HBSE portal.",
+      "title": "Class 10 and 12 Board Examination Results — Session 2025-26",
+      "desc": "Congratulations to all students! \nClass 10 - Session 2025–26\nPass Percentage - 99.33%\nClass 12 - Session 2025–26\nPass Percentage - 97.04%",
       "linkText": "View Result →",
       "linkUrl": "disclosure.html"
     },
     {
-      "date": "2025-04-01",
+      "date": "2026-04-01",
       "tag": "Admission",
       "tagClass": "plain",
-      "title": "Admissions Open for Session 2025–26",
-      "desc": "Admissions are now open for Classes 6 to 12 for the academic session 2025–26. Visit school office or download the admission form below.",
+      "title": "Admissions Open for Session 2026–27",
+      "desc": "Admissions are now open for Classes 6 to 12 for the academic session 2026–27. Visit school office or download the admission form below.",
       "linkText": "Download ↓",
       "linkUrl": "assets/AdmissionForm.pdf"
     },
