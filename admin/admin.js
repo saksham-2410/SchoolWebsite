@@ -9,7 +9,7 @@ const SCHEMAS = {
       { name: 'title', label: 'Title', type: 'text', default: '' },
       { name: 'desc', label: 'Description', type: 'textarea', default: '' },
       { name: 'linkText', label: 'Button Text', type: 'text', default: 'View →' },
-      { name: 'linkUrl', label: 'Button Link (a page like exam.html, a PDF, or #)', type: 'text', default: 'notices.html' },
+      { name: 'linkUrl', label: 'Button Link (a page like downloads.html, a PDF, or #)', type: 'text', default: 'notices.html' },
     ],
   },
   gallery: {
