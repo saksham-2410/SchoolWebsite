@@ -23,6 +23,11 @@
     {"src": "assets/schoolgrouppic.jpeg", "cat": "school", "title": "Annual School Photograph", "date": "2025"},
     {"src": "assets/addressingeveryone.jpeg", "cat": "school", "title": "Principal's Address", "date": "2024"},
     {"src": "assets/kidscampaign1.jpeg", "cat": "school", "title": "Student Awareness Campaign", "date": "2024"},
-    {"src": "assets/plantationdrive.jpeg", "cat": "school", "title": "Plantation Drive", "date": "Jul 2024"}
+    {"src": "assets/plantationdrive.jpeg", "cat": "school", "title": "Plantation Drive", "date": "Jul 2024"},
+    {"src": "assets/gallery1.jpeg", "cat": "school", "title": "Dining & Seating Area", "date": "2025"},
+    {"src": "assets/gallery2.jpeg", "cat": "school", "title": "Chemistry Laboratory", "date": "2025"},
+    {"src": "assets/gallery3.jpeg", "cat": "school", "title": "School Pathway", "date": "2025"},
+    {"src": "assets/gallery4.jpeg", "cat": "school", "title": "Herbal Garden", "date": "2025"},
+    {"src": "assets/gallery5.jpeg", "cat": "school", "title": "Kitchen Garden", "date": "2025"}
   ]
 }
