@@ -1,9 +1,34 @@
 {
   "downloads": [
-    {"icon": "📝", "title": "Admission Form", "meta": "For new admissions — Session 2025–26", "fileUrl": "assets/AdmissionForm.pdf"},
-    {"icon": "🎓", "title": "Character Certificate", "meta": "Official character certificate format", "fileUrl": "assets/CharacerCertificate.pdf"},
-    {"icon": "💰", "title": "Fee Structure 2025–26", "meta": "Approved fee schedule for all classes", "fileUrl": "#"},
-    {"icon": "📋", "title": "SLC Application Form", "meta": "School Leaving Certificate application", "fileUrl": "#"},
-    {"icon": "🗓️", "title": "Academic Calendar 2025–26", "meta": "Full year event and exam calendar", "fileUrl": "#"}
+    {
+      "icon": "📝",
+      "title": "Admission Form",
+      "meta": "For new admissions — Session 2025–26",
+      "fileUrl": "assets/AdmissionForm.pdf"
+    },
+    {
+      "icon": "🎓",
+      "title": "Character Certificate",
+      "meta": "Official character certificate format",
+      "fileUrl": "assets/CharacerCertificate.pdf"
+    },
+    {
+      "icon": "💰",
+      "title": "Fee Structure 2026–27",
+      "meta": "Approved fee schedule for all classes",
+      "fileUrl": "assets/uploads/1785126154473-FEE_STRUCTURE.jpeg"
+    },
+    {
+      "icon": "📋",
+      "title": "SLC Application Form",
+      "meta": "School Leaving Certificate application",
+      "fileUrl": "#"
+    },
+    {
+      "icon": "🗓️",
+      "title": "Academic Calendar 2025–26",
+      "meta": "Full year event and exam calendar",
+      "fileUrl": "#"
+    }
   ]
 }
