@@ -23,6 +23,12 @@
       "session": "2024-25",
       "score": "100",
       "label": "Pass Percentage"
+    },
+    {
+      "class": "Class 10",
+      "session": "2023-24",
+      "score": "100",
+      "label": "Pass Percentage"
     }
   ]
 }
